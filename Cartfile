@@ -1,0 +1,5 @@
+github "nghiaphunguyen/NRxSwift" == 0.1.2
+github "Alamofire/Alamofire" == 3.4.1
+github "SwiftyJSON/SwiftyJSON" == 2.3.3
+github "Hearst-DD/ObjectMapper" == 1.3.0
+github "nghiaphunguyen/NLog" == 1.1
