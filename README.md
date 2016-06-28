@@ -1,7 +1,11 @@
-# NRxSwift 0.1.1
-**NRxSwift** provides NKObservable - un-interrupted observable. It is extended from [RxSwift](https://github.com/ReactiveX/RxSwift)
+# NAlamofire 0.1
+**NAlamofire** is wrapper of [Alamofire](https://github.com/Alamofire/Alamofire).
 
-**This library will bring the [Bolts](https://github.com/BoltsFramework/Bolts-ObjC) concept to Rx**
+**Some other libs is used in this lib:**
+1. [ObjectMapper](https://github.com/Hearst-DD/ObjectMapper)
+2. [NRxSwift](https://github.com/nghiaphunguyen/NRxSwift)
+3. [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)
+4. [NLog](https://github.com/nghiaphunguyen/NLog)
 
 # CHANGE LOG
 
@@ -13,12 +17,12 @@
 ```bash
 use_frameworks!
 
-pod 'NRxSwift'
+pod 'NAlamofire'
 ```
 
 ### Carthage
 ```bash
-github 'nghiaphunguyen/NRxSwift'
+github 'nghiaphunguyen/NAlamofire'
 ```
 
 # USAGE
@@ -28,25 +32,30 @@ import NRxSwift
 import RxSwift
 ```
 
-##### Create observable
+##### Example
 ```swift
-NKObservable.nk_just(1)
+class Item: Mappable {
+    var id: Int = 0
+    var name: String = ""
+    required init?(_ map: Map) {}
 
-NKObservable.nk_error(Error.SomeErrorType)
+    func mapping(map: Map) {
+        id    <- map["id"]
+        name  <- map["name"]
+    }
+}
 
-NKObservable.nk_create { (observer) in
-            observer.nk_setValue("Success")
-        }
-```
+let apiClient = NKApiClient("https://server.com")
+apiClient.get("items")
+.nk_mappingArray(Item.self)
+.subscribleNext { result in
+    guard error = result.error else {
+        // show error
+        return
+    }
 
-##### Stream
-```swift
-validateObservable.nk_continueWithSuccessCloure { (element) -> Observable<NKResult> in
-            return postMessageObservable
-        }.nk_continueWithCloure { (element) -> Observable<NKResult> in
-            return resetSomeStuffsObservable
-        }.subscribeNext { (result) in 
-        	// the error will be handled in this closure, not subscribeError anymore
-            // do something
-        }.addDisposableTo(self.disposeBag)
+    let items = result.value as! [Item]
+    // do somthing
+}.addDisposable(self.disposeBag)
+
 ```

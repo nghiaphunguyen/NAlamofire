@@ -45,4 +45,33 @@ public extension JSON {
         
         return result
     }
+    
+    public func nk_mappingObject<T where T: NKMappable>(keyPath: String? = nil) -> T? {
+        let json: JSON
+        if let keyPath = keyPath {
+            json = self[keyPath]
+        } else {
+            json = self
+        }
+        
+        return T.init(json: json)
+    }
+    
+    public func nk_mappingArray<T where T: NKMappable>(keyPath: String? = nil) -> [T] {
+        let arrayJson: JSON
+        if let keyPath = keyPath {
+            arrayJson = self[keyPath]
+        } else {
+            arrayJson = self
+        }
+        
+        var result = [T]()
+        for (_, json) in arrayJson {
+            if let object: T = json.nk_mappingObject() {
+                result.append(object)
+            }
+        }
+        
+        return result
+    }
 }
