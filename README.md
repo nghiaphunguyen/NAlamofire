@@ -9,7 +9,7 @@
 
 # CHANGE LOG
 
-**v0.1**
+**v0.2**
 
 # INSTALLATION
 
@@ -28,8 +28,9 @@ github 'nghiaphunguyen/NAlamofire'
 # USAGE
 
 ```swift
-import NRxSwift
-import RxSwift
+import ObjectMapper
+import SwiftyJSON
+import NAlamofire
 ```
 
 ##### Example
