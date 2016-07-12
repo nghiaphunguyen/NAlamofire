@@ -106,13 +106,27 @@ public extension NKApiClient {
     public func request(
         method: Alamofire.Method,
         _ URLString: String,
+                 parameters: [String: AnyObject]?,
+                 additionalHeaders: [String : String]?,
+                 encoding: ParameterEncoding,
+                 contentType: ContentType) -> NKObservable {
+        return self.request(method,
+                            withFullPath: self.host ++ URLString,
+                            parameters: parameters,
+                            additionalHeaders: additionalHeaders,
+                            encoding: encoding,
+                            contentType: contentType)
+    }
+    
+    public func request(
+        method: Alamofire.Method,
+        withFullPath fullPath: String,
           parameters: [String: AnyObject]?,
           additionalHeaders: [String : String]?,
           encoding: ParameterEncoding,
-          contentType: ContentType) -> NKObservable
-    {
+          contentType: ContentType) -> NKObservable {
         return NKObservable.nk_create {[unowned self] observer in
-            let URLString = self.host ++ URLString
+            let URLString = fullPath
             
             var headers = self.defaultHeaders
             if let additionalHeader = additionalHeaders {
@@ -201,7 +215,7 @@ public extension NKApiClient {
             }
         }
     }
-
+    
 }
 
 //private functions
