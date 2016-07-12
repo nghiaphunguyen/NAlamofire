@@ -9,6 +9,6 @@
 import Foundation
 
 infix operator ++ {}
-public func ++(left: String, right: String) -> String {
+func ++(left: String, right: String) -> String {
     return (left as NSString).stringByAppendingPathComponent(right)
 }

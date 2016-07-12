@@ -13,7 +13,7 @@ import ObjectMapper
 public extension JSON {
     public func nk_mappingObject<T where T: Mappable>(keyPath: String? = nil) -> T? {
         let json: [String: AnyObject]?
-        if let keyPath = keyPath {
+        if let keyPath = keyPath?.componentsSeparatedByString(".") {
             json = self[keyPath].dictionaryObject
         } else {
             json = self.dictionaryObject
@@ -30,7 +30,7 @@ public extension JSON {
     
     public func nk_mappingArray<T where T: Mappable>(keyPath: String? = nil) -> [T] {
         let arrayJson: JSON
-        if let keyPath = keyPath {
+        if let keyPath = keyPath.componentsSeparatedByString(".") {
             arrayJson = self[keyPath]
         } else {
             arrayJson = self
@@ -48,7 +48,7 @@ public extension JSON {
     
     public func nk_mappingObject<T where T: NKMappable>(keyPath: String? = nil) -> T? {
         let json: JSON
-        if let keyPath = keyPath {
+        if let keyPath = keyPath.componentsSeparatedByString(".") {
             json = self[keyPath]
         } else {
             json = self
@@ -59,7 +59,7 @@ public extension JSON {
     
     public func nk_mappingArray<T where T: NKMappable>(keyPath: String? = nil) -> [T] {
         let arrayJson: JSON
-        if let keyPath = keyPath {
+        if let keyPath = keyPath.componentsSeparatedByString(".") {
             arrayJson = self[keyPath]
         } else {
             arrayJson = self
