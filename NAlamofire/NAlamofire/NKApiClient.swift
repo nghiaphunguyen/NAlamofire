@@ -14,6 +14,8 @@ import SwiftyJSON
 import NLog
 
 public class NKApiClient: AnyObject {
+    public static let kUnauthorizedNotificationName = "UnauthorizedNotificationName"
+    
     public enum ContentType: String {
         case JSON = "application/json"
         case Multipart = "multipart/form-data"
@@ -40,7 +42,7 @@ public class NKApiClient: AnyObject {
     
     //public override functions
     public func bussinessErrorFromResponse(response: NKAlamofireResponseData) -> NKNetworkErrorType? {
-        fatalError("Please override this function")
+        return NKNetworkErrorType.Business(code: response.response?.statusCode ?? 0, debug: "", message: "")
     }
     
     public func extraUserAgent() -> String? {
@@ -165,7 +167,6 @@ public extension NKApiClient {
                 }
             }
             
-            
             switch contentType {
             case .JSON:
                 self.alamofireManager?.request(method,
@@ -213,7 +214,9 @@ public extension NKApiClient {
                         }
                 })
             }
-        }
+        }.nk_continueWithCloure({ (element) -> Observable<NKResult> in
+            return self.checkAuthorizationObservable(element)
+        })
     }
     
 }
@@ -235,5 +238,20 @@ private extension NKApiClient {
         }
         
         return configuration
+    }
+    
+    private func checkAuthorizationObservable(result: NKResult) -> NKObservable {
+        return NKObservable.nk_create({ (observer) in
+            if let error = result.error as? NKNetworkErrorType {
+                
+                if error.errorCode == NKNetworkErrorType.kUnauthorized {
+                    NSNotificationCenter.defaultCenter().postNotificationName(NKApiClient.kUnauthorizedNotificationName, object: nil)
+                }
+                
+                observer.nk_setError(error)
+            }
+            
+            return observer.nk_setValue(result.value)
+        })
     }
 }
