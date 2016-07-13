@@ -58,4 +58,14 @@ public extension Observable where Element: NKResult {
             return Observable.just(NKResult(value: result) as! Element)
         })
     }
+    
+    public func nk_mappingObject(closure: (json: JSON) -> Any?) -> Observable<Element> {
+        return self.nk_continueWithSuccessCloure({ (element) -> Observable<Element> in
+            guard let json = ((element as NKResult).value as? JSONWrapper)?.json else {
+                return Observable.just(NKResult(error: NKNetworkErrorType.Unspecified(error: nil))  as! Element)
+            }
+            
+            return Observable.just(NKResult(value: closure(json: json)) as! Element)
+        })
+    }
 }
