@@ -71,7 +71,7 @@ public extension NKApiClient {
         return self.request(.GET, urlString, parameters: parameters, additionalHeaders: additionalHeader, encoding: .URL, contentType: .JSON, mappingPath: mappingPath)
     }
     
-    public func get<T: JSONWrapper>(urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?) -> Observable<T> {
+    public func get(urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?) -> Observable<JSONWrapper> {
         return self.request(.GET, urlString, parameters: parameters, additionalHeaders: additionalHeader, encoding: .URL, contentType: .JSON)
     }
     
@@ -91,7 +91,7 @@ public extension NKApiClient {
         return self.get(urlString, parameters: parameters, additionalHeader: nil, mappingPath: mappingPath)
     }
     
-    public func get<T: JSONWrapper>(urlString: String, parameters: [String: AnyObject]? = nil) -> Observable<T> {
+    public func get(urlString: String, parameters: [String: AnyObject]? = nil) -> Observable<JSONWrapper> {
         return self.get(urlString, parameters: parameters, additionalHeader: nil)
     }
     
@@ -120,7 +120,7 @@ public extension NKApiClient {
         return self.request(.DELETE, urlString, parameters: parameters, additionalHeaders: additionalHeader, encoding: .URL, contentType: .JSON, mappingPath: mappingPath)
     }
     
-    public func delete<T: JSONWrapper>(urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?, mappingPath: String? = nil) -> Observable<T> {
+    public func delete(urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?, mappingPath: String? = nil) -> Observable<JSONWrapper> {
         return self.request(.DELETE, urlString, parameters: parameters, additionalHeaders: additionalHeader, encoding: .URL, contentType: .JSON)
     }
     //
@@ -140,7 +140,7 @@ public extension NKApiClient {
         return self.delete(urlString, parameters: parameters, additionalHeader: nil, mappingPath: mappingPath)
     }
     
-    public func delete<T: JSONWrapper>(urlString: String, parameters: [String: AnyObject]? = nil) -> Observable<T> {
+    public func delete(urlString: String, parameters: [String: AnyObject]? = nil) -> Observable<JSONWrapper> {
         return self.delete(urlString, parameters: parameters, additionalHeader: nil)
     }
     
@@ -161,7 +161,7 @@ public extension NKApiClient {
         return self.request(.PUT, urlString, parameters: parameters, additionalHeaders: additionalHeader, encoding: .JSON, contentType: contentType, mappingPath: mappingPath)
     }
     
-    public func put<T: JSONWrapper>(urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?, contentType: ContentType) -> Observable<T> {
+    public func put(urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?, contentType: ContentType) -> Observable<JSONWrapper> {
         return self.request(.PUT, urlString, parameters: parameters, additionalHeaders: additionalHeader, encoding: .JSON, contentType: contentType)
     }
     ///
@@ -181,7 +181,7 @@ public extension NKApiClient {
         return self.post(urlString, parameters: parameters, additionalHeader: nil, contentType: contentType, mappingPath: mappingPath)
     }
     
-    public func put<T: JSONWrapper>(urlString: String, parameters: [String: AnyObject]? = nil, contentType: ContentType) -> Observable<T> {
+    public func put(urlString: String, parameters: [String: AnyObject]? = nil, contentType: ContentType) -> Observable<JSONWrapper> {
         return self.post(urlString, parameters: parameters, additionalHeader: nil, contentType: contentType)
     }
     ///
@@ -201,7 +201,7 @@ public extension NKApiClient {
         return self.put(urlString, parameters: parameters, contentType: .JSON, mappingPath: mappingPath)
     }
     
-    public func put<T: JSONWrapper>(urlString: String, parameters: [String: AnyObject]? = nil) -> Observable<T> {
+    public func put(urlString: String, parameters: [String: AnyObject]? = nil) -> Observable<JSONWrapper> {
         return self.put(urlString, parameters: parameters, contentType: .JSON)
     }
 
@@ -223,7 +223,7 @@ public extension NKApiClient {
         return self.request(.POST, urlString, parameters: parameters, additionalHeaders: additionalHeader, encoding: .JSON, contentType: contentType, mappingPath: mappingPath)
     }
     
-    public func post<T: JSONWrapper>(urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?, contentType: ContentType) -> Observable<T> {
+    public func post(urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?, contentType: ContentType) -> Observable<JSONWrapper> {
         return self.request(.POST, urlString, parameters: parameters, additionalHeaders: additionalHeader, encoding: .JSON, contentType: contentType)
     }
     //
@@ -243,7 +243,7 @@ public extension NKApiClient {
         return self.post(urlString, parameters: parameters, additionalHeader: nil, contentType: contentType, mappingPath: mappingPath)
     }
     
-    public func post<T: JSONWrapper>(urlString: String, parameters: [String: AnyObject]? = nil, contentType: ContentType) -> Observable<T> {
+    public func post(urlString: String, parameters: [String: AnyObject]? = nil, contentType: ContentType) -> Observable<JSONWrapper> {
         return self.post(urlString, parameters: parameters, additionalHeader: nil, contentType: contentType)
     }
     //
@@ -263,7 +263,7 @@ public extension NKApiClient {
         return self.post(urlString, parameters: parameters, contentType: .JSON, mappingPath: mappingPath)
     }
     
-    public func post<T: JSONWrapper>(urlString: String, parameters: [String: AnyObject]? = nil) -> Observable<T> {
+    public func post(urlString: String, parameters: [String: AnyObject]? = nil) -> Observable<JSONWrapper> {
         return self.post(urlString, parameters: parameters, contentType: .JSON)
     }
     
@@ -302,13 +302,13 @@ public extension NKApiClient {
                             mappingPath: mappingPath)
     }
     
-    public func request<T: JSONWrapper>(
+    public func request(
         method: Alamofire.Method,
         _ URLString: String,
           parameters: [String: AnyObject]?,
           additionalHeaders: [String : String]?,
           encoding: ParameterEncoding,
-          contentType: ContentType) -> Observable<T> {
+          contentType: ContentType) -> Observable<JSONWrapper> {
         return self.request(method,
                             withFullPath: self.host ++ URLString,
                             parameters: parameters,
@@ -419,19 +419,19 @@ public extension NKApiClient {
         return result.map {$0 as! T}
     }
     
-    public func request<T: JSONWrapper>(
+    public func request(
         method: Alamofire.Method,
         withFullPath fullPath: String,
                      parameters: [String: AnyObject]?,
                      additionalHeaders: [String : String]?,
                      encoding: ParameterEncoding,
-                     contentType: ContentType) -> Observable<T> {
+                     contentType: ContentType) -> Observable<JSONWrapper> {
         return self._request(method,
             withFullPath: fullPath,
             parameters: parameters,
             additionalHeaders: additionalHeaders,
             encoding: encoding,
-            contentType: contentType).map {$0 as! T}
+            contentType: contentType)
     }
 }
 
