@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NAlamofire
 
 class ViewController: UIViewController {
 
@@ -17,6 +18,10 @@ class ViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        
+        let apiClient = NKApiClient(host: "")
+        
+        
         // Dispose of any resources that can be recreated.
     }
 

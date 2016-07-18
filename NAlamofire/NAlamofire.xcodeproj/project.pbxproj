@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		185119BB1D3D02EB00D7D210 /* NKArrayType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185119BA1D3D02EB00D7D210 /* NKArrayType.swift */; };
 		18D0ADAF1D20D3DC005C76E0 /* NAlamofire.h in Headers */ = {isa = PBXBuildFile; fileRef = 18D0ADAE1D20D3DC005C76E0 /* NAlamofire.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		18D0ADB61D20D3DC005C76E0 /* NAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D0ADAB1D20D3DC005C76E0 /* NAlamofire.framework */; };
 		18D0ADBB1D20D3DC005C76E0 /* NAlamofireTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D0ADBA1D20D3DC005C76E0 /* NAlamofireTests.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		185119BA1D3D02EB00D7D210 /* NKArrayType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NKArrayType.swift; sourceTree = "<group>"; };
 		18D0ADAB1D20D3DC005C76E0 /* NAlamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NAlamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		18D0ADAE1D20D3DC005C76E0 /* NAlamofire.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAlamofire.h; sourceTree = "<group>"; };
 		18D0ADB01D20D3DC005C76E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				18D0ADD51D211B0A005C76E0 /* NKObservable+NAlamofire.swift */,
 				18D0ADD71D2129C4005C76E0 /* JSON+NAlamofire.swift */,
 				18D0ADE11D223068005C76E0 /* NKMappable.swift */,
+				185119BA1D3D02EB00D7D210 /* NKArrayType.swift */,
 			);
 			path = NAlamofire;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				18D0ADCE1D20E96A005C76E0 /* NKNetworkErrorType.swift in Sources */,
 				18D0ADD01D20F93D005C76E0 /* JSONWrapper.swift in Sources */,
 				18D0ADCC1D20E260005C76E0 /* NKApiClient.swift in Sources */,
+				185119BB1D3D02EB00D7D210 /* NKArrayType.swift in Sources */,
 				18D0ADD41D211034005C76E0 /* NAlamofireUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
