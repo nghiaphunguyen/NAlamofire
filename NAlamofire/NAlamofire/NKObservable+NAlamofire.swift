@@ -12,6 +12,57 @@ import NRxSwift
 import ObjectMapper
 import SwiftyJSON
 
+public extension Observable where Element: JSONWrapper {
+    public func nk_autoMappingObject<T where T: Mappable>(keyPath: String? = nil) -> Observable<T> {
+        
+        return self.flatMapLatest({ (jsonWrapper) -> Observable<T> in
+            
+            let jsonWrapper = jsonWrapper as JSONWrapper
+            let object: T? = jsonWrapper.json.nk_mappingObject(keyPath)
+            
+            guard let obj = object else {
+                return Observable<T>.error(NKNetworkErrorType.Unspecified(error: nil))
+            }
+            
+            return Observable<T>.just(obj)
+        })
+    }
+    
+    public func nk_autoMappingArray<T where T: Mappable>(keyPath: String? = nil) -> Observable<[T]> {
+        return self.flatMapLatest({ (jsonWrapper) -> Observable<[T]> in
+            
+            let jsonWrapper = jsonWrapper as JSONWrapper
+            let object: [T] = jsonWrapper.json.nk_mappingArray(keyPath)
+            
+            return Observable<[T]>.just(object)
+        })
+    }
+    
+    public func nk_autoMappingObject<T where T: NKMappable>(keyPath: String? = nil) -> Observable<T> {
+        return self.flatMapLatest({ (jsonWrapper) -> Observable<T> in
+            
+            let jsonWrapper = jsonWrapper as JSONWrapper
+            let object: T? = jsonWrapper.json.nk_mappingObject(keyPath)
+            
+            guard let obj = object else {
+                return Observable<T>.error(NKNetworkErrorType.Unspecified(error: nil))
+            }
+            
+            return Observable<T>.just(obj)
+        })
+    }
+    
+    public func nk_autoMappingArray<T where T: NKMappable>(keyPath: String? = nil) -> Observable<[T]> {
+        return self.flatMapLatest({ (jsonWrapper) -> Observable<[T]> in
+            
+            let jsonWrapper = jsonWrapper as JSONWrapper
+            let object: [T] = jsonWrapper.json.nk_mappingArray(keyPath)
+            
+            return Observable<[T]>.just(object)
+        })
+    }
+}
+
 public extension Observable where Element: NKResult {
     public func nk_mappingObject<T where T: Mappable>(type: T.Type, keyPath: String? = nil) -> Observable<Element> {
         return self.nk_continueWithSuccessCloure({ (element) -> Observable<Element> in

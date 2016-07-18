@@ -62,46 +62,46 @@ public extension NKApiClient {
     }
     
     //get
-    public func get(urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?) -> NKObservable {
+    public func get(urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?) -> Observable<JSONWrapper> {
         return self.request(.GET, urlString, parameters: parameters, additionalHeaders: additionalHeader, encoding: .URL, contentType: .JSON)
     }
     
-    public func get(urlString: String, parameters: [String: AnyObject]? = nil) -> NKObservable {
+    public func get(urlString: String, parameters: [String: AnyObject]? = nil) -> Observable<JSONWrapper> {
         return self.get(urlString, parameters: parameters, additionalHeader: nil)
     }
     
     //delete
-    public func delete(urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?) -> NKObservable {
+    public func delete(urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?) -> Observable<JSONWrapper> {
         return self.request(.DELETE, urlString, parameters: parameters, additionalHeaders: additionalHeader, encoding: .URL, contentType: .JSON)
     }
     
-    public func delete(urlString: String, parameters: [String: AnyObject]? = nil) -> NKObservable {
+    public func delete(urlString: String, parameters: [String: AnyObject]? = nil) -> Observable<JSONWrapper> {
         return self.delete(urlString, parameters: parameters, additionalHeader: nil)
     }
     
     //put
-    public func put(urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?, contentType: ContentType) -> NKObservable {
+    public func put(urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?, contentType: ContentType) -> Observable<JSONWrapper> {
         return self.request(.PUT, urlString, parameters: parameters, additionalHeaders: additionalHeader, encoding: .JSON, contentType: contentType)
     }
     
-    public func put(urlString: String, parameters: [String: AnyObject]? = nil, contentType: ContentType) -> NKObservable {
+    public func put(urlString: String, parameters: [String: AnyObject]? = nil, contentType: ContentType) -> Observable<JSONWrapper> {
         return self.put(urlString, parameters: parameters, additionalHeader: nil, contentType: contentType)
     }
     
-    public func put(urlString: String, parameters: [String: AnyObject]? = nil) -> NKObservable {
+    public func put(urlString: String, parameters: [String: AnyObject]? = nil) -> Observable<JSONWrapper> {
         return self.put(urlString, parameters: parameters, contentType: .JSON)
     }
     
     //post
-    public func post(urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?, contentType: ContentType) -> NKObservable {
+    public func post(urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?, contentType: ContentType) -> Observable<JSONWrapper> {
         return self.request(.POST, urlString, parameters: parameters, additionalHeaders: additionalHeader, encoding: .JSON, contentType: contentType)
     }
     
-    public func post(urlString: String, parameters: [String: AnyObject]? = nil, contentType: ContentType) -> NKObservable {
+    public func post(urlString: String, parameters: [String: AnyObject]? = nil, contentType: ContentType) -> Observable<JSONWrapper> {
         return self.post(urlString, parameters: parameters, additionalHeader: nil, contentType: contentType)
     }
     
-    public func post(urlString: String, parameters: [String: AnyObject]? = nil) -> NKObservable {
+    public func post(urlString: String, parameters: [String: AnyObject]? = nil) -> Observable<JSONWrapper> {
         return self.post(urlString, parameters: parameters, contentType: .JSON)
     }
     
@@ -111,7 +111,7 @@ public extension NKApiClient {
                  parameters: [String: AnyObject]?,
                  additionalHeaders: [String : String]?,
                  encoding: ParameterEncoding,
-                 contentType: ContentType) -> NKObservable {
+                 contentType: ContentType) -> Observable<JSONWrapper> {
         return self.request(method,
                             withFullPath: self.host ++ URLString,
                             parameters: parameters,
@@ -126,8 +126,8 @@ public extension NKApiClient {
           parameters: [String: AnyObject]?,
           additionalHeaders: [String : String]?,
           encoding: ParameterEncoding,
-          contentType: ContentType) -> NKObservable {
-        return NKObservable.nk_create {[unowned self] observer in
+          contentType: ContentType) -> Observable<JSONWrapper> {
+        return Observable.create {[unowned self] observer -> Disposable in
             let URLString = fullPath
             
             var headers = self.defaultHeaders
@@ -150,18 +150,19 @@ public extension NKApiClient {
                 switch response.result {
                 case .Success(_):
                     let jsonWrapper = JSONWrapper(json: json, response: response)
-                    observer.nk_setValue(jsonWrapper)
+                    observer.onNext(jsonWrapper)
+                    observer.onCompleted()
                 case .Failure(let error):
                     switch error.code {
                     case -1009:
-                        observer.nk_setError(NKNetworkErrorType.NoNetwork)
+                        observer.onError(NKNetworkErrorType.NoNetwork)
                     case NSURLErrorTimedOut:
-                        observer.nk_setError(NKNetworkErrorType.Timeout)
+                        observer.onError(NKNetworkErrorType.Timeout)
                     default:
                         if let error = self?.bussinessErrorFromResponse(response) {
-                            observer.nk_setError(error)
+                            observer.onError(error)
                         } else {
-                            observer.nk_setError(NKNetworkErrorType.Unspecified(error: response.result.error))
+                            observer.onError(NKNetworkErrorType.Unspecified(error: response.result.error))
                         }
                     }
                 }
@@ -210,13 +211,13 @@ public extension NKApiClient {
                         case .Success(let upload, _, _):
                             upload.validate().responseData(queue: self.responseQueue, completionHandler: completion)
                         case .Failure(let error):
-                            observer.nk_setError(NKNetworkErrorType.Unspecified(error: error as NSError))
+                            observer.onError(NKNetworkErrorType.Unspecified(error: error as NSError))
                         }
                 })
             }
-        }.nk_continueWithCloure({ (element) -> Observable<NKResult> in
-            return self.checkAuthorizationObservable(element)
-        })
+            
+            return AnonymousDisposable {}
+        }
     }
     
 }
@@ -240,18 +241,12 @@ private extension NKApiClient {
         return configuration
     }
     
-    private func checkAuthorizationObservable(result: NKResult) -> NKObservable {
-        return NKObservable.nk_create({ (observer) in
-            if let error = result.error as? NKNetworkErrorType {
-                
-                if error.errorCode == NKNetworkErrorType.kUnauthorized {
-                    NSNotificationCenter.defaultCenter().postNotificationName(NKApiClient.kUnauthorizedNotificationName, object: nil)
-                }
-                
-                observer.nk_setError(error)
-            }
+    private func checkAuthorization(error: ErrorType) {
+        if let error = error as? NKNetworkErrorType {
             
-            return observer.nk_setValue(result.value)
-        })
+            if error.errorCode == NKNetworkErrorType.kUnauthorized {
+                NSNotificationCenter.defaultCenter().postNotificationName(NKApiClient.kUnauthorizedNotificationName, object: nil)
+            }
+        }
     }
 }
