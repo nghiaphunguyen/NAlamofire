@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "NAlamofire"
-  s.version      = "0.5.7"
+  s.version      = "0.5.8"
   s.summary      = "NAlamofire is wrapper of Alamofire - it makes use Alamofire easiest way."
   s.homepage     = "http://cornerteam.com"
   s.license      = "MIT"
