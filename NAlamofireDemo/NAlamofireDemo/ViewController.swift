@@ -8,9 +8,10 @@
 
 import UIKit
 import NAlamofire
+import RxSwift
 
 class ViewController: UIViewController {
-
+let apiClient = NKApiClient(host: "")
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -19,12 +20,23 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
-        let apiClient = NKApiClient(host: "")
+        
         
         
         // Dispose of any resources that can be recreated.
     }
 
+    func get() -> Observable<JSONWrapper> {
+        return apiClient.get("")
+    }
     
+    func post() -> Observable<JSONWrapper> {
+        return apiClient.post("")
+    }
+    
+    func requestVerifyCode (
+        telephone: String) -> Observable<JSONWrapper> {
+        return apiClient.post("/private/users/request_verify_code", parameters: ["telephone" : telephone])
+    }
 }
 
