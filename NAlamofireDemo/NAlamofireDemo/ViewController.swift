@@ -9,6 +9,8 @@
 import UIKit
 import NAlamofire
 import RxSwift
+import NRxSwift
+import SwiftyJSON
 
 class ViewController: UIViewController {
 let apiClient = NKApiClient(host: "")
@@ -19,9 +21,6 @@ let apiClient = NKApiClient(host: "")
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        
-        
-        
         
         // Dispose of any resources that can be recreated.
     }
@@ -37,6 +36,20 @@ let apiClient = NKApiClient(host: "")
     func requestVerifyCode (
         telephone: String) -> Observable<JSONWrapper> {
         return apiClient.post("/private/users/request_verify_code", parameters: ["telephone" : telephone])
+    }
+    
+    func requestString() -> Observable<String> {
+        return apiClient.get("").map {$0.json.stringValue}
+    }
+    
+    func requestA() -> Observable<[A]> {
+        return apiClient.get("")
+    }
+}
+
+class A: NKMappable {
+    required init?(json: JSON) {
+        
     }
 }
 

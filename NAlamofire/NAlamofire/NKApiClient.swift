@@ -559,6 +559,8 @@ private extension NKApiClient {
             }
             
             return AnonymousDisposable {}
-        }
+        }.doOnError({ (error) in
+            self.checkAuthorization(error)
+        })
     }
 }
