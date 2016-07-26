@@ -13,6 +13,28 @@ import ObjectMapper
 import SwiftyJSON
 
 public extension Observable where Element: JSONWrapper {
+    public func nk_autoMappingObject<T where T: Mappable>(keyPath: String? = nil) -> Observable<T?> {
+        
+        return self.flatMapLatest({ (jsonWrapper) -> Observable<T?> in
+            
+            let jsonWrapper = jsonWrapper as JSONWrapper
+            let object: T? = jsonWrapper.json.nk_mappingObject(keyPath)
+            
+            return Observable<T?>.just(object)
+        })
+    }
+    
+    public func nk_autoMappingObject<T where T: NKMappable>(keyPath: String? = nil) -> Observable<T?> {
+        
+        return self.flatMapLatest({ (jsonWrapper) -> Observable<T?> in
+            
+            let jsonWrapper = jsonWrapper as JSONWrapper
+            let object: T? = jsonWrapper.json.nk_mappingObject(keyPath)
+            
+            return Observable<T?>.just(object)
+        })
+    }
+    
     public func nk_autoMappingObject<T where T: Mappable>(keyPath: String? = nil) -> Observable<T> {
         
         return self.flatMapLatest({ (jsonWrapper) -> Observable<T> in
