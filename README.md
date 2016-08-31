@@ -1,5 +1,5 @@
 # NAlamofire 0.1
-**NAlamofire** is wrapper of [Alamofire](https://github.com/Alamofire/Alamofire).
+**NAlamofire** the fastest way to get responses from API via RxSwift. It is wrapper of [Alamofire](https://github.com/Alamofire/Alamofire).
 
 **Some other libs is used in this lib:**
 1. [ObjectMapper](https://github.com/Hearst-DD/ObjectMapper)
