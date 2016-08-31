@@ -48,14 +48,7 @@ class Item: Mappable {
 
 let apiClient = NKApiClient("https://server.com")
 apiClient.get("items")
-.nk_mappingArray(Item.self)
-.subscribleNext { result in
-    guard error = result.error else {
-        // show error
-        return
-    }
-
-    let items = result.value as! [Item]
+.subscribleNext { items in
     // do somthing
 }.addDisposable(self.disposeBag)
 
