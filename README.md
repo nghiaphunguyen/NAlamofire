@@ -9,7 +9,7 @@
 
 # CHANGE LOG
 
-**v0.2**
+**v0.5.9**
 
 # INSTALLATION
 
@@ -35,7 +35,7 @@ import NAlamofire
 
 ##### Example
 ```swift
-class Item: Mappable {
+final class Item: Mappable {
     var id: Int = 0
     var name: String = ""
     required init?(_ map: Map) {}
@@ -47,8 +47,9 @@ class Item: Mappable {
 }
 
 let apiClient = NKApiClient("https://server.com")
-apiClient.get("items")
-.subscribleNext { items in
+
+let itemsObservable: Observable<[Item]> = apiClient.get("items")
+itemsObservable.subscribleNext { items in
     // do somthing
 }.addDisposable(self.disposeBag)
 
