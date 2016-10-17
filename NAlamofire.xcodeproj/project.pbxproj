@@ -1,0 +1,430 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		18F2E6A31DB51BC300C4B966 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2E6A21DB51BC300C4B966 /* AppDelegate.swift */; };
+		18F2E6A51DB51BC300C4B966 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2E6A41DB51BC300C4B966 /* ViewController.swift */; };
+		18F2E6A81DB51BC300C4B966 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18F2E6A61DB51BC300C4B966 /* Main.storyboard */; };
+		18F2E6AA1DB51BC300C4B966 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18F2E6A91DB51BC300C4B966 /* Assets.xcassets */; };
+		18F2E6AD1DB51BC300C4B966 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18F2E6AB1DB51BC300C4B966 /* LaunchScreen.storyboard */; };
+		18F2E6BD1DB51C8800C4B966 /* JSON+NAlamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2E6B51DB51C8800C4B966 /* JSON+NAlamofire.swift */; };
+		18F2E6BE1DB51C8800C4B966 /* JSONWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2E6B61DB51C8800C4B966 /* JSONWrapper.swift */; };
+		18F2E6BF1DB51C8800C4B966 /* NAlamofireUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2E6B71DB51C8800C4B966 /* NAlamofireUtils.swift */; };
+		18F2E6C01DB51C8800C4B966 /* NKApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2E6B81DB51C8800C4B966 /* NKApiClient.swift */; };
+		18F2E6C11DB51C8800C4B966 /* NKArrayType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2E6B91DB51C8800C4B966 /* NKArrayType.swift */; };
+		18F2E6C21DB51C8800C4B966 /* NKMappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2E6BA1DB51C8800C4B966 /* NKMappable.swift */; };
+		18F2E6C31DB51C8800C4B966 /* NKNetworkErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2E6BB1DB51C8800C4B966 /* NKNetworkErrorType.swift */; };
+		18F2E6C41DB51C8800C4B966 /* NKObservable+NAlamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2E6BC1DB51C8800C4B966 /* NKObservable+NAlamofire.swift */; };
+		D1AAEB0DB98C0C9177FE66D2 /* Pods_NAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37C8E00BE4FA990F56BDED5D /* Pods_NAlamofire.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		18F2E69F1DB51BC300C4B966 /* NAlamofire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NAlamofire.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		18F2E6A21DB51BC300C4B966 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		18F2E6A41DB51BC300C4B966 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		18F2E6A71DB51BC300C4B966 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		18F2E6A91DB51BC300C4B966 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		18F2E6AC1DB51BC300C4B966 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		18F2E6AE1DB51BC300C4B966 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18F2E6B51DB51C8800C4B966 /* JSON+NAlamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSON+NAlamofire.swift"; sourceTree = "<group>"; };
+		18F2E6B61DB51C8800C4B966 /* JSONWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONWrapper.swift; sourceTree = "<group>"; };
+		18F2E6B71DB51C8800C4B966 /* NAlamofireUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NAlamofireUtils.swift; sourceTree = "<group>"; };
+		18F2E6B81DB51C8800C4B966 /* NKApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NKApiClient.swift; sourceTree = "<group>"; };
+		18F2E6B91DB51C8800C4B966 /* NKArrayType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NKArrayType.swift; sourceTree = "<group>"; };
+		18F2E6BA1DB51C8800C4B966 /* NKMappable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NKMappable.swift; sourceTree = "<group>"; };
+		18F2E6BB1DB51C8800C4B966 /* NKNetworkErrorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NKNetworkErrorType.swift; sourceTree = "<group>"; };
+		18F2E6BC1DB51C8800C4B966 /* NKObservable+NAlamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NKObservable+NAlamofire.swift"; sourceTree = "<group>"; };
+		37C8E00BE4FA990F56BDED5D /* Pods_NAlamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NAlamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		45350E715943DB98921482CF /* Pods-NAlamofire.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NAlamofire.release.xcconfig"; path = "Pods/Target Support Files/Pods-NAlamofire/Pods-NAlamofire.release.xcconfig"; sourceTree = "<group>"; };
+		4A86094305B6CB86E1C9C4F6 /* Pods-NAlamofire.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NAlamofire.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NAlamofire/Pods-NAlamofire.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		18F2E69C1DB51BC300C4B966 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1AAEB0DB98C0C9177FE66D2 /* Pods_NAlamofire.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		18F2E6961DB51BC300C4B966 = {
+			isa = PBXGroup;
+			children = (
+				18F2E6A11DB51BC300C4B966 /* NAlamofire */,
+				18F2E6A01DB51BC300C4B966 /* Products */,
+				31FFEF2009CDB3B4A9A0A1B1 /* Pods */,
+				E5BEDA37FE0CC743DFB3EC84 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		18F2E6A01DB51BC300C4B966 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				18F2E69F1DB51BC300C4B966 /* NAlamofire.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		18F2E6A11DB51BC300C4B966 /* NAlamofire */ = {
+			isa = PBXGroup;
+			children = (
+				18F2E6B41DB51C8800C4B966 /* Source */,
+				18F2E6A21DB51BC300C4B966 /* AppDelegate.swift */,
+				18F2E6A41DB51BC300C4B966 /* ViewController.swift */,
+				18F2E6A61DB51BC300C4B966 /* Main.storyboard */,
+				18F2E6A91DB51BC300C4B966 /* Assets.xcassets */,
+				18F2E6AB1DB51BC300C4B966 /* LaunchScreen.storyboard */,
+				18F2E6AE1DB51BC300C4B966 /* Info.plist */,
+			);
+			path = NAlamofire;
+			sourceTree = "<group>";
+		};
+		18F2E6B41DB51C8800C4B966 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				18F2E6B51DB51C8800C4B966 /* JSON+NAlamofire.swift */,
+				18F2E6B61DB51C8800C4B966 /* JSONWrapper.swift */,
+				18F2E6B71DB51C8800C4B966 /* NAlamofireUtils.swift */,
+				18F2E6B81DB51C8800C4B966 /* NKApiClient.swift */,
+				18F2E6B91DB51C8800C4B966 /* NKArrayType.swift */,
+				18F2E6BA1DB51C8800C4B966 /* NKMappable.swift */,
+				18F2E6BB1DB51C8800C4B966 /* NKNetworkErrorType.swift */,
+				18F2E6BC1DB51C8800C4B966 /* NKObservable+NAlamofire.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		31FFEF2009CDB3B4A9A0A1B1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4A86094305B6CB86E1C9C4F6 /* Pods-NAlamofire.debug.xcconfig */,
+				45350E715943DB98921482CF /* Pods-NAlamofire.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E5BEDA37FE0CC743DFB3EC84 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				37C8E00BE4FA990F56BDED5D /* Pods_NAlamofire.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		18F2E69E1DB51BC300C4B966 /* NAlamofire */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18F2E6B11DB51BC300C4B966 /* Build configuration list for PBXNativeTarget "NAlamofire" */;
+			buildPhases = (
+				51385AF3470E0DEAE1D9C01B /* [CP] Check Pods Manifest.lock */,
+				18F2E69B1DB51BC300C4B966 /* Sources */,
+				18F2E69C1DB51BC300C4B966 /* Frameworks */,
+				18F2E69D1DB51BC300C4B966 /* Resources */,
+				F2826332AA476C2DEB432480 /* [CP] Embed Pods Frameworks */,
+				27A6264DB5AE9987DB85E2C3 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NAlamofire;
+			productName = NAlamofire;
+			productReference = 18F2E69F1DB51BC300C4B966 /* NAlamofire.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		18F2E6971DB51BC300C4B966 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Nghia Nguyen";
+				TargetAttributes = {
+					18F2E69E1DB51BC300C4B966 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 18F2E69A1DB51BC300C4B966 /* Build configuration list for PBXProject "NAlamofire" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 18F2E6961DB51BC300C4B966;
+			productRefGroup = 18F2E6A01DB51BC300C4B966 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				18F2E69E1DB51BC300C4B966 /* NAlamofire */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		18F2E69D1DB51BC300C4B966 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18F2E6AD1DB51BC300C4B966 /* LaunchScreen.storyboard in Resources */,
+				18F2E6AA1DB51BC300C4B966 /* Assets.xcassets in Resources */,
+				18F2E6A81DB51BC300C4B966 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		27A6264DB5AE9987DB85E2C3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NAlamofire/Pods-NAlamofire-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		51385AF3470E0DEAE1D9C01B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F2826332AA476C2DEB432480 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NAlamofire/Pods-NAlamofire-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		18F2E69B1DB51BC300C4B966 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18F2E6C01DB51C8800C4B966 /* NKApiClient.swift in Sources */,
+				18F2E6BF1DB51C8800C4B966 /* NAlamofireUtils.swift in Sources */,
+				18F2E6A51DB51BC300C4B966 /* ViewController.swift in Sources */,
+				18F2E6C31DB51C8800C4B966 /* NKNetworkErrorType.swift in Sources */,
+				18F2E6BD1DB51C8800C4B966 /* JSON+NAlamofire.swift in Sources */,
+				18F2E6C41DB51C8800C4B966 /* NKObservable+NAlamofire.swift in Sources */,
+				18F2E6A31DB51BC300C4B966 /* AppDelegate.swift in Sources */,
+				18F2E6C11DB51C8800C4B966 /* NKArrayType.swift in Sources */,
+				18F2E6C21DB51C8800C4B966 /* NKMappable.swift in Sources */,
+				18F2E6BE1DB51C8800C4B966 /* JSONWrapper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		18F2E6A61DB51BC300C4B966 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				18F2E6A71DB51BC300C4B966 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		18F2E6AB1DB51BC300C4B966 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				18F2E6AC1DB51BC300C4B966 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		18F2E6AF1DB51BC300C4B966 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_WHOLE_MODULE_OPTIMIZATION = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		18F2E6B01DB51BC300C4B966 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_WHOLE_MODULE_OPTIMIZATION = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		18F2E6B21DB51BC300C4B966 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A86094305B6CB86E1C9C4F6 /* Pods-NAlamofire.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = NAlamofire/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cornerteam.NAlamofire;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		18F2E6B31DB51BC300C4B966 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45350E715943DB98921482CF /* Pods-NAlamofire.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = NAlamofire/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cornerteam.NAlamofire;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		18F2E69A1DB51BC300C4B966 /* Build configuration list for PBXProject "NAlamofire" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18F2E6AF1DB51BC300C4B966 /* Debug */,
+				18F2E6B01DB51BC300C4B966 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		18F2E6B11DB51BC300C4B966 /* Build configuration list for PBXNativeTarget "NAlamofire" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18F2E6B21DB51BC300C4B966 /* Debug */,
+				18F2E6B31DB51BC300C4B966 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 18F2E6971DB51BC300C4B966 /* Project object */;
+}

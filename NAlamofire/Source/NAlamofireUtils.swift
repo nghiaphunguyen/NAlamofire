@@ -8,7 +8,7 @@
 
 import Foundation
 
-infix operator ++ {}
+infix operator ++
 func ++(left: String, right: String) -> String {
-    return (left as NSString).stringByAppendingPathComponent(right)
+    return (left as NSString).appendingPathComponent(right)
 }

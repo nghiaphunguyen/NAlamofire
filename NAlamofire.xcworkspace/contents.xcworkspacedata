@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:NAlamofireDemo/NAlamofireDemo.xcodeproj">
+      location = "group:NAlamofire.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:NAlamofire/NAlamofire.xcodeproj">
+      location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>
