@@ -22,5 +22,5 @@ lane :release do
   git_commit(path: ".", message: "Bump to #{version}")
   add_git_tag(tag: "#{version}")
   push_to_git_remote(force: false, tags: true)
-  pod_push(allow_warnings: true)
+  pod_push(allow_warnings: true, verbose: true)
 end
