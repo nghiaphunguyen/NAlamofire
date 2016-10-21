@@ -15,12 +15,12 @@ lane :release do
   changelog = prompt(text: "Please provide release notes:".green, boolean: false, ci_input: "", multi_line_end_keyword: "FIN")
   af_insert_text_into_file(
     file_path: "README.md",
-    text: "\n**v#{version} - #{Time.now.strftime('%m/%d/%Y')}\n#{changelog}\n",
+    text: "\n**v#{version} - #{Time.now.strftime('%m/%d/%Y')}**\n#{changelog}\n",
     insert_delimiter: "# CHANGE LOG"
   )
 
   git_commit(path: ".", message: "Bump to #{version}")
   add_git_tag(tag: "#{version}")
   push_to_git_remote(force: false, tags: true)
-  pod_push(allow_warnings: true, verbose: true)
+  pod_push(allow_warnings: true)
 end
