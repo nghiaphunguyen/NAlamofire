@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import Alamofire
 import SwiftyJSON
-import NLog
+import NLogProtocol
 import ObjectMapper
 
 open class NKApiClient: AnyObject {
@@ -630,12 +630,12 @@ private extension NKApiClient {
             let parameterString = String(format: "%@", (parameters == nil) ? "[no params]" : parameters!)
             
             let requestCode = "\(NSDate().timeIntervalSince1970)"
-            NLog.server("[\(requestCode)] \(method) \(URLString) \(headers) \(parameterString)")
+            NKLOG.server("[\(requestCode)] \(method) \(URLString) \(headers) \(parameterString)")
             
             
             let completion: (NKAlamofireResponseData) -> Void = {[weak self](response) -> Void in
                 let json = JSON(data: response.data ?? Data())
-                NLog.server("[\(requestCode)] \(response.response?.statusCode ?? 0) \(URLString) \(json) \(response.result.error?.localizedDescription ?? "")")
+                NKLOG.server("[\(requestCode)] \(response.response?.statusCode ?? 0) \(URLString) \(json) \(response.result.error?.localizedDescription ?? "")")
                 
                 switch response.result {
                 case .success(_):
