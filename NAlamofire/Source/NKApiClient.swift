@@ -28,15 +28,17 @@ public class NKApiClient: AnyObject {
     
     //private properties
     private var defaultHeaders = [String:String]()
-    
+    private let acceptableStatusCodes: Range<Int>
     private var alamofireManager: Alamofire.Manager?
     
     public init(host: String,
                 requestTimeout: NSTimeInterval? = nil,
+                acceptableStatusCodes: Range<Int> = 200..<300,
                 responseQueue: dispatch_queue_t = dispatch_get_main_queue()) {
         self.host = host
         self.requestTimeout = requestTimeout
         self.responseQueue = responseQueue
+        self.acceptableStatusCodes = acceptableStatusCodes
         self.alamofireManager = Alamofire.Manager(configuration: self.createAlamofireConfiguration(requestTimeout: requestTimeout))
     }
     
@@ -53,7 +55,7 @@ public class NKApiClient: AnyObject {
 public typealias NKAlamofireResponseData = Response<NSData, NSError>
 //public functions
 public extension NKApiClient {
-    public func addDefaultHeader(key: String, value: String) {
+    public func setDefaultHeader(key: String, value: String) {
         self.defaultHeaders[key] = value
     }
     
@@ -664,6 +666,7 @@ private extension NKApiClient {
                     encoding: encoding,
                     headers: headers)
                     .validate()
+                    .validate(statusCode: self.acceptableStatusCodes)
                     .responseData(queue: self.responseQueue, completionHandler: completion)
                 
             case .Multipart:
@@ -697,7 +700,8 @@ private extension NKApiClient {
                     }, encodingCompletion: { (encodingResult) -> Void in
                         switch encodingResult {
                         case .Success(let upload, _, _):
-                            upload.validate().responseData(queue: self.responseQueue, completionHandler: completion)
+                            upload.validate().validate(statusCode: self.acceptableStatusCodes)
+                                .responseData(queue: self.responseQueue, completionHandler: completion)
                         case .Failure(let error):
                             observer.onError(NKNetworkErrorType.Unspecified(error: error as NSError))
                         }
