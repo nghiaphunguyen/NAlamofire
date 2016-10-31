@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import ObjectMapper
+import SwiftyJSON
 
 class ViewController: UIViewController {
 
@@ -21,5 +23,41 @@ class ViewController: UIViewController {
     }
 
 
+}
+
+struct Item: Mappable {
+    private enum Key: String, NKAlamofireKey {
+        case id, name
+    }
+    
+    var id: Int = 0
+    var name: String = ""
+    
+    init?(_ map: Map) {}
+    
+    mutating func mapping(map: Map) {
+        id <- map[Key.id]
+        name <- map[Key.name]
+    }
+}
+
+struct Category: NKMappable {
+    
+    private enum Key: String, NKAlamofireKey {
+        case id, name
+    }
+    
+    let id: Int
+    let name: String
+    
+    init?(json: JSON) {
+        guard json[Key.id].int != nil
+            && json[Key.name].string != nil else {
+            return nil
+        }
+        
+        self.id = json[Key.id].intValue
+        self.name = json[Key.name].stringValue
+    }
 }
 
