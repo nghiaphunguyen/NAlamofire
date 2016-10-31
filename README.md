@@ -8,6 +8,9 @@
 4. [NLog](https://github.com/nghiaphunguyen/NLog)
 
 # CHANGE LOG 
+**v2.0.8 - 10/31/2016**
+update NLog to NLogProtocol
+ 
 **v2.0.7 - 10/21/2016**
 update syntax to swift3
  
