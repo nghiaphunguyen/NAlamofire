@@ -10,6 +10,31 @@ import Foundation
 import SwiftyJSON
 import ObjectMapper
 
+public protocol NKAlamofireKey: JSONSubscriptType {
+    var rawValue: String {get}
+}
+
+public extension ObjectMapper.Map {
+    public subscript (key: NKAlamofireKey) -> ObjectMapper.Map {
+        return self[key.rawValue]
+    }
+    public subscript (key: NKAlamofireKey, nested nested: Bool) -> ObjectMapper.Map {
+        return self[key.rawValue, nested: nested]
+    }
+    public subscript (key: NKAlamofireKey, ignoreNil ignoreNil: Bool) -> ObjectMapper.Map {
+        return self[key.rawValue, ignoreNil: ignoreNil]
+    }
+    public subscript (key: NKAlamofireKey, nested nested: Bool, ignoreNil ignoreNil: Bool) -> ObjectMapper.Map {
+        return self[key.rawValue, nested: nested, ignoreNil: ignoreNil]
+    }
+}
+
+public extension NKAlamofireKey {
+    public var jsonKey: JSONKey {
+        return JSONKey.Key(self.rawValue)
+    }
+}
+
 public extension JSON {
     public func nk_mappingObject<T where T: Mappable>(keyPath: String? = nil) -> T? {
         let json: [String: AnyObject]?

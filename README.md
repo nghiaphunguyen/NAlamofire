@@ -23,14 +23,38 @@ import ObjectMapper
 import NAlamofire
 
 //Object must be conformed to Mappable or NKMappable.
-final class Item: Mappable {
+struct Item: Mappable {
+    private enum Key: String, NKAlamofireKey {
+        case id, name
+    }
+
     var id: Int = 0
     var name: String = ""
-    required init?(_ map: Map) {}
 
-    func mapping(map: Map) {
-        id    <- map["id"]
-        name  <- map["name"]
+    init?(_ map: Map) {}
+
+    mutating func mapping(map: Map) {
+        id <- map[Key.id]
+        name <- map[Key.name]
+    }
+}
+
+struct Category: NKMappable {
+
+    private enum Key: String, NKAlamofireKey {
+        case id, name
+    }
+
+    let id: Int
+    let name: String
+
+    init?(json: JSON) {
+        guard json[Key.id].int != nil && json[Key.name].string != nil else {
+            return nil
+        }
+
+        self.id = json[Key.id].intValue
+        self.name = json[Key.name].stringValue
     }
 }
 
@@ -42,20 +66,21 @@ let apiClient = NKApiClient(host: "https://server.com")
 //get items
 let itemsObservable: Observable[Item]> = apiClient.get("items")
 
-//get item
-let itemObservable: Observable<Item> = apiClient.get("item/\(id)")
+//get category by id
+let categoryObservable: Observable<Category> = apiClient.get("category/3")
 
 //subscrible observables to get objects
 itemsObservable.subscrible(onNext: { items in
 })
 
-itemsObservable.subscrible(onNext: { item in
+categoryObservable.subscrible(onNext: { category in
 })
 
 ```
 
 #NKApiClient
-**This is wrapper of Alamofire Manager to help you make a request easier (get/post/put/delete). Support multipart/formdata type.**
+**This is wrapper of Alamofire Manager to help you make a request easier (get/post/put/delete).**
+**Support multipart/formdata type.**
 
 **Public apis:**
 ```swift
