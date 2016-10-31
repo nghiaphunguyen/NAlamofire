@@ -62,6 +62,6 @@ itemsObservable.subscrible(onNext: { items in
     open func bussinessErrorFromResponse(_:) // override to customize bussinessError. See also at NKNetworkErrorType.
 ``` 
 
-####Subscribe notification name **NKApiClient.kUnauthorizedNotificationName** to handle unauthorization case.
+####Subscribe notification name *NKApiClient.kUnauthorizedNotificationName* to handle unauthorization case.
 
-####Thanks @khoinguyen and @trinhngocthuyen for constribution. 
+####Thanks @khoinguyenvu and @trinhngocthuyen for your constribution. 
