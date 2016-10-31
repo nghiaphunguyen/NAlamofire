@@ -8,26 +8,26 @@
 
 import Foundation
 
-public enum NKNetworkErrorType: Error {
+public enum NKNetworkErrorType: ErrorType {
     public static let kNoNetwork = -1
     public static let kTimeout = -2
     public static let kUnauthorized = 401
     public static let kUnspecified = -3
     
-    case noNetwork
-    case timeout
-    case business(code: Int, debug:String, message:String)
-    case unspecified(error: Error?)
+    case NoNetwork
+    case Timeout
+    case Business(code: Int, debug:String, message:String)
+    case Unspecified(error: NSError?)
     
     public var errorCode: Int {
         switch self {
-        case .noNetwork:
+        case .NoNetwork:
             return -NKNetworkErrorType.kNoNetwork
-        case .timeout:
+        case .Timeout:
             return -NKNetworkErrorType.kTimeout
-        case .business(let code, _, _):
+        case .Business(let code, _, _):
             return code
-        case .unspecified(_):
+        case .Unspecified(_):
             return -NKNetworkErrorType.kUnspecified
         }
     }

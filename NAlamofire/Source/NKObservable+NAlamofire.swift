@@ -13,7 +13,7 @@ import ObjectMapper
 import SwiftyJSON
 
 public extension Observable where Element: JSONWrapper {
-    public func nk_autoMappingObject<T>(_ keyPath: String? = nil) -> Observable<T?> where T: Mappable {
+    public func nk_autoMappingObject<T where T: Mappable>(keyPath: String? = nil) -> Observable<T?> {
         
         return self.flatMapLatest({ (jsonWrapper) -> Observable<T?> in
             
@@ -24,7 +24,7 @@ public extension Observable where Element: JSONWrapper {
         })
     }
     
-    public func nk_autoMappingObject<T>(_ keyPath: String? = nil) -> Observable<T?> where T: NKMappable {
+    public func nk_autoMappingObject<T where T: NKMappable>(keyPath: String? = nil) -> Observable<T?> {
         
         return self.flatMapLatest({ (jsonWrapper) -> Observable<T?> in
             
@@ -35,7 +35,7 @@ public extension Observable where Element: JSONWrapper {
         })
     }
     
-    public func nk_autoMappingObject<T>(_ keyPath: String? = nil) -> Observable<T> where T: Mappable {
+    public func nk_autoMappingObject<T where T: Mappable>(keyPath: String? = nil) -> Observable<T> {
         
         return self.flatMapLatest({ (jsonWrapper) -> Observable<T> in
             
@@ -43,14 +43,14 @@ public extension Observable where Element: JSONWrapper {
             let object: T? = jsonWrapper.json.nk_mappingObject(keyPath)
             
             guard let obj = object else {
-                return Observable<T>.error(NKNetworkErrorType.unspecified(error: nil))
+                return Observable<T>.error(NKNetworkErrorType.Unspecified(error: nil))
             }
             
             return Observable<T>.just(obj)
         })
     }
     
-    public func nk_autoMappingArray<T>(_ keyPath: String? = nil) -> Observable<[T]> where T: Mappable {
+    public func nk_autoMappingArray<T where T: Mappable>(keyPath: String? = nil) -> Observable<[T]> {
         return self.flatMapLatest({ (jsonWrapper) -> Observable<[T]> in
             
             let jsonWrapper = jsonWrapper as JSONWrapper
@@ -60,21 +60,21 @@ public extension Observable where Element: JSONWrapper {
         })
     }
     
-    public func nk_autoMappingObject<T>(_ keyPath: String? = nil) -> Observable<T> where T: NKMappable {
+    public func nk_autoMappingObject<T where T: NKMappable>(keyPath: String? = nil) -> Observable<T> {
         return self.flatMapLatest({ (jsonWrapper) -> Observable<T> in
             
             let jsonWrapper = jsonWrapper as JSONWrapper
             let object: T? = jsonWrapper.json.nk_mappingObject(keyPath)
             
             guard let obj = object else {
-                return Observable<T>.error(NKNetworkErrorType.unspecified(error: nil))
+                return Observable<T>.error(NKNetworkErrorType.Unspecified(error: nil))
             }
             
             return Observable<T>.just(obj)
         })
     }
     
-    public func nk_autoMappingArray<T>(_ keyPath: String? = nil) -> Observable<[T]> where T: NKMappable {
+    public func nk_autoMappingArray<T where T: NKMappable>(keyPath: String? = nil) -> Observable<[T]> {
         return self.flatMapLatest({ (jsonWrapper) -> Observable<[T]> in
             
             let jsonWrapper = jsonWrapper as JSONWrapper
@@ -86,10 +86,10 @@ public extension Observable where Element: JSONWrapper {
 }
 
 public extension Observable where Element: NKResult {
-    public func nk_mappingObject<T>(_ type: T.Type, keyPath: String? = nil) -> Observable<Element> where T: Mappable {
+    public func nk_mappingObject<T where T: Mappable>(type: T.Type, keyPath: String? = nil) -> Observable<Element> {
         return self.nk_continueWithSuccessCloure({ (element) -> Observable<Element> in
             guard let jsonWrapper = (element as NKResult).value as? JSONWrapper else {
-                return Observable.just(NKResult(error: NKNetworkErrorType.unspecified(error: nil))  as! Element)
+                return Observable.just(NKResult(error: NKNetworkErrorType.Unspecified(error: nil))  as! Element)
             }
             
             let result: T? = jsonWrapper.json.nk_mappingObject(keyPath)
@@ -98,10 +98,10 @@ public extension Observable where Element: NKResult {
         })
     }
     
-    public func nk_mappingArray<T>(_ type: T.Type, keyPath: String? = nil) -> Observable<Element> where T: Mappable {
+    public func nk_mappingArray<T where T: Mappable>(type: T.Type, keyPath: String? = nil) -> Observable<Element> {
         return self.nk_continueWithSuccessCloure({ (element) -> Observable<Element> in
             guard let jsonWrapper = (element as NKResult).value as? JSONWrapper else {
-                return Observable.just(NKResult(error: NKNetworkErrorType.unspecified(error: nil))  as! Element)
+                return Observable.just(NKResult(error: NKNetworkErrorType.Unspecified(error: nil))  as! Element)
             }
             
             let result: [T] = jsonWrapper.json.nk_mappingArray(keyPath)
@@ -109,10 +109,10 @@ public extension Observable where Element: NKResult {
         })
     }
     
-    public func nk_mappingObject<T>(_ type: T.Type, keyPath: String? = nil) -> Observable<Element> where T: NKMappable {
+    public func nk_mappingObject<T where T: NKMappable>(type: T.Type, keyPath: String? = nil) -> Observable<Element> {
         return self.nk_continueWithSuccessCloure({ (element) -> Observable<Element> in
             guard let jsonWrapper = (element as NKResult).value as? JSONWrapper else {
-                return Observable.just(NKResult(error: NKNetworkErrorType.unspecified(error: nil))  as! Element)
+                return Observable.just(NKResult(error: NKNetworkErrorType.Unspecified(error: nil))  as! Element)
             }
             
             let result: T? = jsonWrapper.json.nk_mappingObject(keyPath)
@@ -121,10 +121,10 @@ public extension Observable where Element: NKResult {
         })
     }
     
-    public func nk_mappingArray<T>(_ type: T.Type, keyPath: String? = nil) -> Observable<Element> where T: NKMappable {
+    public func nk_mappingArray<T where T: NKMappable>(type: T.Type, keyPath: String? = nil) -> Observable<Element> {
         return self.nk_continueWithSuccessCloure({ (element) -> Observable<Element> in
             guard let jsonWrapper = (element as NKResult).value as? JSONWrapper else {
-                return Observable.just(NKResult(error: NKNetworkErrorType.unspecified(error: nil))  as! Element)
+                return Observable.just(NKResult(error: NKNetworkErrorType.Unspecified(error: nil))  as! Element)
             }
             
             let result: [T] = jsonWrapper.json.nk_mappingArray(keyPath)
@@ -132,13 +132,13 @@ public extension Observable where Element: NKResult {
         })
     }
     
-    public func nk_mapping(_ closure: @escaping (_ json: JSON) -> Any?) -> Observable<Element> {
+    public func nk_mapping(closure: (json: JSON) -> Any?) -> Observable<Element> {
         return self.nk_continueWithSuccessCloure({ (element) -> Observable<Element> in
             guard let json = ((element as NKResult).value as? JSONWrapper)?.json else {
-                return Observable.just(NKResult(error: NKNetworkErrorType.unspecified(error: nil))  as! Element)
+                return Observable.just(NKResult(error: NKNetworkErrorType.Unspecified(error: nil))  as! Element)
             }
             
-            return Observable.just(NKResult(value: closure(json)) as! Element)
+            return Observable.just(NKResult(value: closure(json: json)) as! Element)
         })
     }
 }

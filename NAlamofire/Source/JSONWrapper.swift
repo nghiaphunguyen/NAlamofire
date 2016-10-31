@@ -10,12 +10,12 @@ import Foundation
 import SwiftyJSON
 import Alamofire
 
-open class JSONWrapper : NSObject
+public class JSONWrapper : NSObject
 {
-    open var json:JSON = JSON([String: AnyObject]())
-    open var response: NKAlamofireResponseData?
+    public var json:JSON = JSON([String: AnyObject]())
+    public var response: Response<NSData, NSError>?
     
-    public init(json:JSON , response: NKAlamofireResponseData? = nil) {
+    public init(json:JSON , response: Response<NSData, NSError>? = nil) {
         self.json = json
         self.response = response
     }
