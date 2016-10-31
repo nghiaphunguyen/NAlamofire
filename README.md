@@ -62,14 +62,13 @@ itemsObservable.subscrible(onNext: { items in
 
 #####Subscribe notification name *NKApiClient.kUnauthorizedNotificationName* to handle unauthorization case.
 
-#Print log
-#####Import NLogProtocol to print request and response data.
+#Print request and response data
 ```swift
     import NLogProtocol
 
-    struct CustomNLogProtocol: NLogProtocol {//See apis at NLogProtocol}
+    struct CustomNLog: NLogProtocol {//See apis at NLogProtocol}
 
-    NKLOG = CustomNLogProtocol.self
+    NKLOG = CustomNLog.self
 ```
 
 ####Thanks @khoinguyenvu and @trinhngocthuyen for your constribution.
