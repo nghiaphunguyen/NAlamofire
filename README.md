@@ -52,10 +52,9 @@ itemsObservable.subscrible(onNext: { items in
 ```
 
 #NKApiClient
-######This is wrapper of Alamofire Manager to help you make a request easier (get/post/put/delete).
-######Support multipart/formdata type.
+####This is wrapper of Alamofire Manager to help you make a request easier (get/post/put/delete). Support multipart/formdata type.
 
-**Public apis:**
+####Public apis:
 ```swift
     public func setDefaultHeader(key:value:)
     public func removeDefaultHeader(key:)
@@ -63,4 +62,6 @@ itemsObservable.subscrible(onNext: { items in
     open func bussinessErrorFromResponse(_:) // override to customize bussinessError. See also at NKNetworkErrorType.
 ``` 
 
-##Subscribe notification name **NKApiClient.kUnauthorizedNotificationName** to handle unauthorized case.
+####Subscribe notification name **NKApiClient.kUnauthorizedNotificationName** to handle unauthorization case.
+
+####Thanks @khoinguyen and @trinhngocthuyen for constribution. 
