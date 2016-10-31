@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "NAlamofire"
-  s.version      = "1.9.4"
+  s.version      = "1.9.5"
   s.summary      = "NAlamofire is wrapper of Alamofire - it makes use Alamofire easiest way."
   s.homepage     = "http://cornerteam.com"
   s.license      = "MIT"
@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.pod_target_xcconfig = { 'OTHER_LDFLAGS' => '-lObjC' }
 
   s.dependency 'NRxSwift', '0.2.10'
-  s.dependency 'NRxSwift', '2.6.0'
+  s.dependency 'RxSwift', '2.6.0'
   s.dependency 'Alamofire', '3.5.1'
   s.dependency 'SwiftyJSON', '2.3.2'
   s.dependency 'ObjectMapper', '1.4.0'
