@@ -39,54 +39,28 @@ struct Item: Mappable {
     }
 }
 
-struct Category: NKMappable {
-
-    private enum Key: String, NKAlamofireKey {
-        case id, name
-    }
-
-    let id: Int
-    let name: String
-
-    init?(json: JSON) {
-        guard json[Key.id].int != nil && json[Key.name].string != nil else {
-            return nil
-        }
-
-        self.id = json[Key.id].intValue
-        self.name = json[Key.name].stringValue
-    }
-}
-
 //create API client
 let apiClient = NKApiClient(host: "https://server.com")
 
-//convert request to object, array objects
-
-//get items
+// create items observable
 let itemsObservable: Observable[Item]> = apiClient.get("items")
-
-//get category by id
-let categoryObservable: Observable<Category> = apiClient.get("category/3")
 
 //subscrible observables to get objects
 itemsObservable.subscrible(onNext: { items in
 })
 
-categoryObservable.subscrible(onNext: { category in
-})
-
 ```
 
 #NKApiClient
-**This is wrapper of Alamofire Manager to help you make a request easier (get/post/put/delete).**
-**Support multipart/formdata type.**
+######This is wrapper of Alamofire Manager to help you make a request easier (get/post/put/delete).
+######Support multipart/formdata type.
 
 **Public apis:**
 ```swift
     public func setDefaultHeader(key:value:)
     public func removeDefaultHeader(key:)
     public func extraUserAgent()
-    open func bussinessErrorFromResponse(_:) // override to custom bussinessError. See also at NKNetworkErrorType.
-    
+    open func bussinessErrorFromResponse(_:) // override to customize bussinessError. See also at NKNetworkErrorType.
 ``` 
+
+##Subscribe notification name **NKApiClient.kUnauthorizedNotificationName** to handle unauthorized case.
