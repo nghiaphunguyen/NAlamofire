@@ -1,7 +1,7 @@
 # NAlamofire
-**NAlamofire** - the easy way to convert directly the request to object, array objects via RxSwift. It is wrapper of [Alamofire](https://github.com/Alamofire/Alamofire).
+**NAlamofire** - the easy way to convert directly the request to object, array objects via RxSwift in a few lines code. It is wrapper of [Alamofire](https://github.com/Alamofire/Alamofire).
 
-**Some other libs is used in this lib:**
+**Some referenced libs :**
 1. [ObjectMapper](https://github.com/Hearst-DD/ObjectMapper)
 2. [NRxSwift](https://github.com/nghiaphunguyen/NRxSwift)
 3. [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)
@@ -12,12 +12,10 @@
 ### Pod
 ```bash
 use_frameworks!
-
 pod 'NAlamofire'
 ```
 
 #USAGE
-
 ```swift
 import ObjectMapper
 import NAlamofire
@@ -62,6 +60,16 @@ itemsObservable.subscrible(onNext: { items in
     open func bussinessErrorFromResponse(_:) // override to customize bussinessError. See also at NKNetworkErrorType.
 ``` 
 
-####Subscribe notification name *NKApiClient.kUnauthorizedNotificationName* to handle unauthorization case.
+#####Subscribe notification name *NKApiClient.kUnauthorizedNotificationName* to handle unauthorization case.
 
-####Thanks @khoinguyenvu and @trinhngocthuyen for your constribution. 
+#Print log
+#####Import NLogProtocol to print request and response data.
+```swift
+    import NLogProtocol
+
+    struct CustomNLogProtocol: NLogProtocol {//See apis at NLogProtocol}
+
+    NKLOG = CustomNLogProtocol.self
+```
+
+####Thanks @khoinguyenvu and @trinhngocthuyen for your constribution.
