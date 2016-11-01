@@ -8,7 +8,7 @@ Referenced libs:
   4. [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)
   5. [NLogProtocol](https://github.com/nghiaphunguyen/NLogProtocol)
 
-###INSTALLATION
+###Installation
 Use version 1.9.7 for swift 2.3 
 
 ####Pod
@@ -17,7 +17,7 @@ use_frameworks!
 pod 'NAlamofire'
 ```
 
-###USAGE
+###Usage
 ```swift
 import ObjectMapper
 import NAlamofire
