@@ -62,7 +62,7 @@ This is wrapper of Alamofire Manager to help you make a request easier (get/post
     open func bussinessErrorFromResponse(_:) // override to customize bussinessError. See also at NKNetworkErrorType.
 ```
 
-Subscribe notification name *NKApiClient.kUnauthorizedNotificationName* to handle unauthorization case.
+Subscribe notification name **NKApiClient.kUnauthorizedNotificationName** to handle unauthorization case.
 
 ##Print request and response data
 Make the logger conform to NLogProtocol to print request and response data.
