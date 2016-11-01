@@ -1,11 +1,12 @@
 # NAlamofire
-**NAlamofire** - the easy way to convert directly the request to object, array objects via RxSwift in a few lines code. It is wrapper of [Alamofire](https://github.com/Alamofire/Alamofire).
+**NAlamofire** - the easy way to convert directly the request to object, array objects via RxSwift in a few lines code. It is a wrapper of .
 
-**Referenced libs :**
-1. [ObjectMapper](https://github.com/Hearst-DD/ObjectMapper)
-2. [NRxSwift](https://github.com/nghiaphunguyen/NRxSwift)
-3. [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)
-4. [NLogProtocol](https://github.com/nghiaphunguyen/NLogProtocol)
+**Referenced libs:**
+  1. [Alamofire](https://github.com/Alamofire/Alamofire)
+  2. [ObjectMapper](https://github.com/Hearst-DD/ObjectMapper)
+  3. [NRxSwift](https://github.com/nghiaphunguyen/NRxSwift)
+  4. [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)
+  5. [NLogProtocol](https://github.com/nghiaphunguyen/NLogProtocol)
 
 #INSTALLATION
 
@@ -63,6 +64,8 @@ itemsObservable.subscrible(onNext: { items in
 #####Subscribe notification name *NKApiClient.kUnauthorizedNotificationName* to handle unauthorization case.
 
 #Print request and response data
+####Make the logger conform to NLogProtocol to print request and response data.
+
 ```swift
     import NLogProtocol
 
