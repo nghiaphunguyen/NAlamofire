@@ -36,17 +36,17 @@ public extension NKAlamofireKey {
 }
 
 public extension JSON {
-    public func nk_mappingObject<T where T: Mappable>(keyPath: String? = nil) -> T? {
-        let json: [String: AnyObject]?
+    public func nk_mappingObject<T>(_ keyPath: String? = nil) -> T? where T: Mappable {
+        let json: [String: Any]?
         
-        if let keyPath = keyPath?.componentsSeparatedByString(".").map({$0 as JSONSubscriptType}) {
+        if let keyPath = keyPath?.components(separatedBy: ".").map({$0 as JSONSubscriptType}) {
             json = self[keyPath].dictionaryObject
         } else {
             json = self.dictionaryObject
         }
         let result: T?
         if let json = json {
-            result = Mapper<T>().map(json)
+            result = Mapper<T>().map(JSON: json)
         } else {
             result = nil
         }
@@ -54,9 +54,9 @@ public extension JSON {
         return result
     }
     
-    public func nk_mappingArray<T where T: Mappable>(keyPath: String? = nil) -> [T] {
+    public func nk_mappingArray<T>(_ keyPath: String? = nil) -> [T] where T: Mappable {
         let arrayJson: JSON
-        if let keyPath = keyPath?.componentsSeparatedByString(".").map({$0 as JSONSubscriptType}) {
+        if let keyPath = keyPath?.components(separatedBy: ".").map({$0 as JSONSubscriptType}) {
             arrayJson = self[keyPath]
         } else {
             arrayJson = self
@@ -72,9 +72,9 @@ public extension JSON {
         return result
     }
     
-    public func nk_mappingObject<T where T: NKMappable>(keyPath: String? = nil) -> T? {
+    public func nk_mappingObject<T>(_ keyPath: String? = nil) -> T? where T: NKMappable {
         let json: JSON
-        if let keyPath = keyPath?.componentsSeparatedByString(".").map({$0 as JSONSubscriptType}) {
+        if let keyPath = keyPath?.components(separatedBy:".").map({$0 as JSONSubscriptType}) {
             json = self[keyPath]
         } else {
             json = self
@@ -83,9 +83,9 @@ public extension JSON {
         return T.init(json: json)
     }
     
-    public func nk_mappingArray<T where T: NKMappable>(keyPath: String? = nil) -> [T] {
+    public func nk_mappingArray<T>(_ keyPath: String? = nil) -> [T] where T: NKMappable {
         let arrayJson: JSON
-        if let keyPath = keyPath?.componentsSeparatedByString(".").map({$0 as JSONSubscriptType}) {
+        if let keyPath = keyPath?.components(separatedBy:".").map({$0 as JSONSubscriptType}) {
             arrayJson = self[keyPath]
         } else {
             arrayJson = self
