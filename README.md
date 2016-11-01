@@ -31,7 +31,7 @@ struct Item: Mappable {
     var id: Int = 0
     var name: String = ""
 
-    init?(_ map: Map) {}
+    init?(map: Map) {}
 
     mutating func mapping(map: Map) {
         id <- map[Key.id]
@@ -45,7 +45,7 @@ let apiClient = NKApiClient(host: "https://server.com")
 // create items observable
 let itemsObservable: Observable[Item]> = apiClient.get("items")
 
-//subscrible observables to get objects
+//subscrible observable to get objects
 itemsObservable.subscrible(onNext: { items in
 })
 
