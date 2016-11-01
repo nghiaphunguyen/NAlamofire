@@ -1,4 +1,4 @@
-# NAlamofire
+#NAlamofire
 **NAlamofire** - the easy way to convert directly the request to object, array objects via RxSwift in a few lines code.
 
 Referenced libs:
@@ -8,10 +8,10 @@ Referenced libs:
   4. [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)
   5. [NLogProtocol](https://github.com/nghiaphunguyen/NLogProtocol)
 
-##INSTALLATION
+###INSTALLATION
 Use version 1.9.7 for swift 2.3 
 
-#### Pod
+##### Pod
 ```bash
 use_frameworks!
 pod 'NAlamofire'
@@ -51,10 +51,10 @@ itemsObservable.subscrible(onNext: { items in
 
 ```
 
-##NKApiClient
+###NKApiClient
 This is wrapper of Alamofire Manager to help you make a request easier (get/post/put/delete). Support multipart/formdata type.
 
-####Public apis:
+#####Public apis:
 ```swift
     public func setDefaultHeader(key:value:)
     public func removeDefaultHeader(key:)
@@ -64,7 +64,7 @@ This is wrapper of Alamofire Manager to help you make a request easier (get/post
 
 Subscribe notification name **NKApiClient.kUnauthorizedNotificationName** to handle unauthorization case.
 
-##Print request and response data
+###Print request and response data
 Make the logger conform to NLogProtocol to print request and response data.
 
 ```swift
