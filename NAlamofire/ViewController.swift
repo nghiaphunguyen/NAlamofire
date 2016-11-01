@@ -33,7 +33,7 @@ struct Item: Mappable {
     var id: Int = 0
     var name: String = ""
     
-    init?(_ map: Map) {}
+    init?(map: Map) {}
     
     mutating func mapping(map: Map) {
         id <- map[Key.id]

@@ -31,7 +31,7 @@ public extension ObjectMapper.Map {
 
 public extension NKAlamofireKey {
     public var jsonKey: JSONKey {
-        return JSONKey.Key(self.rawValue)
+        return JSONKey.key(self.rawValue)
     }
 }
 

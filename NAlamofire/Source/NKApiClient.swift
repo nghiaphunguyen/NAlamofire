@@ -28,12 +28,12 @@ open class NKApiClient: AnyObject {
 
     //private properties
     fileprivate var defaultHeaders = [String:String]()
-    fileprivate let acceptableStatusCodes: Range<Int>
+    fileprivate let acceptableStatusCodes: [Int]
     fileprivate var alamofireManager: Alamofire.SessionManager?
 
     public init(host: String,
                 requestTimeout: TimeInterval? = nil,
-                acceptableStatusCodes: Range<Int> = 200..<300,
+                acceptableStatusCodes: [Int] = Array(200..<300),
                 responseQueue: DispatchQueue = DispatchQueue.main) {
         self.host = host
         self.requestTimeout = requestTimeout
