@@ -1,5 +1,5 @@
 # NAlamofire
-**NAlamofire** - the easy way to convert directly the request to object, array objects via RxSwift in a few lines code. It is a wrapper of .
+**NAlamofire** - the easy way to convert directly the request to object, array objects via RxSwift in a few lines code.
 
 **Referenced libs:**
   1. [Alamofire](https://github.com/Alamofire/Alamofire)
