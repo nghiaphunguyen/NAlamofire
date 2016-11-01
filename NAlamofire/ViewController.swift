@@ -41,6 +41,26 @@ struct Item: Mappable {
     }
 }
 
+extension Optional {
+    var isNotNil: Bool {
+        switch self {
+        case .none:
+            return false
+        default:
+            return true
+        }
+    }
+    
+    var isNil: Bool {
+        switch self {
+        case .none:
+            return true
+        default:
+            return false
+        }
+    }
+}
+
 struct Category: NKMappable {
     
     private enum Key: String, NKAlamofireKey {
@@ -51,8 +71,8 @@ struct Category: NKMappable {
     let name: String
     
     init?(json: JSON) {
-        guard json[Key.id].int != nil
-            && json[Key.name].string != nil else {
+        guard json[Key.id].int.isNotNil
+            && json[Key.name].string.isNotNil else {
             return nil
         }
         

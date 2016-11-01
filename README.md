@@ -1,23 +1,23 @@
 # NAlamofire
 **NAlamofire** - the easy way to convert directly the request to object, array objects via RxSwift in a few lines code.
 
-**Referenced libs:**
+Referenced libs:
   1. [Alamofire](https://github.com/Alamofire/Alamofire)
   2. [ObjectMapper](https://github.com/Hearst-DD/ObjectMapper)
   3. [NRxSwift](https://github.com/nghiaphunguyen/NRxSwift)
   4. [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)
   5. [NLogProtocol](https://github.com/nghiaphunguyen/NLogProtocol)
 
-#INSTALLATION
-####Use version 1.9.7 for swift 2.3 
+##INSTALLATION
+Use version 1.9.7 for swift 2.3 
 
-### Pod
+#### Pod
 ```bash
 use_frameworks!
 pod 'NAlamofire'
 ```
 
-#USAGE
+##USAGE
 ```swift
 import ObjectMapper
 import NAlamofire
@@ -51,8 +51,8 @@ itemsObservable.subscrible(onNext: { items in
 
 ```
 
-#NKApiClient
-####This is wrapper of Alamofire Manager to help you make a request easier (get/post/put/delete). Support multipart/formdata type.
+##NKApiClient
+This is wrapper of Alamofire Manager to help you make a request easier (get/post/put/delete). Support multipart/formdata type.
 
 ####Public apis:
 ```swift
@@ -62,10 +62,10 @@ itemsObservable.subscrible(onNext: { items in
     open func bussinessErrorFromResponse(_:) // override to customize bussinessError. See also at NKNetworkErrorType.
 ```
 
-#####Subscribe notification name *NKApiClient.kUnauthorizedNotificationName* to handle unauthorization case.
+Subscribe notification name *NKApiClient.kUnauthorizedNotificationName* to handle unauthorization case.
 
-#Print request and response data
-####Make the logger conform to NLogProtocol to print request and response data.
+##Print request and response data
+Make the logger conform to NLogProtocol to print request and response data.
 
 ```swift
     import NLogProtocol
