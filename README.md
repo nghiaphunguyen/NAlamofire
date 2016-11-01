@@ -17,7 +17,7 @@ use_frameworks!
 pod 'NAlamofire'
 ```
 
-##USAGE
+###USAGE
 ```swift
 import ObjectMapper
 import NAlamofire
@@ -54,7 +54,7 @@ itemsObservable.subscrible(onNext: { items in
 ###NKApiClient
 This is wrapper of Alamofire Manager to help you make a request easier (get/post/put/delete). Support multipart/formdata type.
 
-#####Public apis:
+####Public apis:
 ```swift
     public func setDefaultHeader(key:value:)
     public func removeDefaultHeader(key:)
