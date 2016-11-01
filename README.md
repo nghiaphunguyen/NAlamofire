@@ -9,6 +9,7 @@
   5. [NLogProtocol](https://github.com/nghiaphunguyen/NLogProtocol)
 
 #INSTALLATION
+####Use version 1.9.7 for swift 2.3 
 
 ### Pod
 ```bash
