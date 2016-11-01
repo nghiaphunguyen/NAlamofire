@@ -1,0 +1,27 @@
+PODS:
+  - Alamofire (4.0.1)
+  - NLogProtocol (2.0.0)
+  - NRxSwift (1.0.0):
+    - RxSwift (= 3.0.0.beta.2)
+  - ObjectMapper (2.2.0)
+  - RxSwift (3.0.0-beta.2)
+  - SwiftyJSON (3.1.1)
+
+DEPENDENCIES:
+  - Alamofire
+  - NLogProtocol
+  - NRxSwift
+  - ObjectMapper
+  - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  NLogProtocol: 7495d0c42360c054c47109dd9f43481d171fc6f0
+  NRxSwift: 272f5600bb549ac71e1c7c53f1e470a3192b25cf
+  ObjectMapper: 4060d739febae11ab0c6af8d786f98667c82e1bd
+  RxSwift: 0ea939d7d97cb70657190ffde8dc2a9b455778fc
+  SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
+
+PODFILE CHECKSUM: fc523235d7d26bb48be86c6ee144c172f6100ba5
+
+COCOAPODS: 1.1.1
