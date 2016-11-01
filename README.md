@@ -45,7 +45,7 @@ let apiClient = NKApiClient(host: "https://server.com")
 // create items observable
 let itemsObservable: Observable[Item]> = apiClient.get("items")
 
-//subscrible observable to get objects
+//subscribe observable to get objects
 itemsObservable.subscribe(onNext: { items in
 })
 
