@@ -4,7 +4,7 @@
 target 'NAlamofire' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
-pod 'NLogProtocol', '1.0.0'
+pod 'NLogProtocol', '1.0.1'
 pod 'Alamofire', '3.5.1'
 pod 'ObjectMapper', '1.4.0'
 pod 'SwiftyJSON', '2.3.2'
