@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "NAlamofire"
-  s.version      = "1.9.8"
+  s.version      = "1.9.9"
   s.summary      = "NAlamofire is wrapper of Alamofire - it makes use Alamofire easiest way."
   s.homepage     = "http://cornerteam.com"
   s.license      = "MIT"
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.dependency 'Alamofire', '3.5.1'
   s.dependency 'SwiftyJSON', '2.3.2'
   s.dependency 'ObjectMapper', '1.4.0'
-  s.dependency 'NLogProtocol', '1.0.0'
+  s.dependency 'NLogProtocol', '1.0.1'
 
 
 end
