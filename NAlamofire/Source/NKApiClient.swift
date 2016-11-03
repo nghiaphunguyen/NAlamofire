@@ -632,12 +632,12 @@ private extension NKApiClient {
             let parameterString = String(format: "%@", (parameters == nil) ? "[no params]" : parameters!)
 
             let requestCode = "\(NSDate().timeIntervalSince1970)"
-            NKLOG.server("[\(requestCode)] \(method) \(URLString) \(headers) \(parameterString)")
+            NKLog.server("[\(requestCode)] \(method) \(URLString) \(headers) \(parameterString)")
 
 
             let completion: (NKAlamofireResponseData) -> Void = {[weak self](response) -> Void in
                 let json = JSON(data: response.data ?? Data())
-                NKLOG.server("[\(requestCode)] \(response.response?.statusCode ?? 0) \(URLString) \(json) \(response.result.error?.localizedDescription ?? "")")
+                NKLog.server("[\(requestCode)] \(response.response?.statusCode ?? 0) \(URLString) \(json) \(response.result.error?.localizedDescription ?? "")")
 
                 switch response.result {
                 case .success(_):

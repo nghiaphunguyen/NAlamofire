@@ -1,4 +1,6 @@
 ## Build generated
+
+**/.env
 build/
 DerivedData
 
