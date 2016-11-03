@@ -9,7 +9,7 @@ Referenced libs:
   5. [NLogProtocol](https://github.com/nghiaphunguyen/NLogProtocol)
 
 ###Installation
-Use version 1.9.7 for swift 2.3 
+Use version 1.9.9 for swift 2.3 
 
 ####Pod
 ```bash
@@ -43,7 +43,7 @@ struct Item: Mappable {
 let apiClient = NKApiClient(host: "https://server.com")
 
 // create items observable
-let itemsObservable: Observable[Item]> = apiClient.get("items")
+let itemsObservable: Observable<[Item]> = apiClient.get("items")
 
 //subscribe observable to get objects
 itemsObservable.subscribe(onNext: { items in
@@ -70,7 +70,7 @@ Make the logger conform to NLogProtocol to print request and response data.
 ```swift
     import NLogProtocol
 
-    struct CustomNLog: NLogProtocol {//See apis at NLogProtocol}
+    struct CustomNLog: NKLogProtocol {//See apis at NLogProtocol}
 
     NKLOG = CustomNLog.self
 ```
