@@ -64,288 +64,288 @@ public extension NKApiClient {
     }
 
     //get
-    public func get<T: NKMappable>(_ urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?, mappingPath: String? = nil) -> Observable<T?> {
+    public func get<T: NKMappable>(_ urlString: String, parameters: [String: Any]?, additionalHeader: [String: String]?, mappingPath: String? = nil) -> Observable<T?> {
         return self.request(.get, urlString, parameters: parameters, additionalHeaders: additionalHeader, encoding: URLEncoding.default, contentType: .JSON, mappingPath: mappingPath)
     }
 
-    public func get<T: Mappable>(_ urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?, mappingPath: String? = nil) -> Observable<T?> {
+    public func get<T: Mappable>(_ urlString: String, parameters: [String: Any]?, additionalHeader: [String: String]?, mappingPath: String? = nil) -> Observable<T?> {
         return self.request(.get, urlString, parameters: parameters, additionalHeaders: additionalHeader, encoding: URLEncoding.default, contentType: .JSON, mappingPath: mappingPath)
     }
 
-    public func get<T: NKMappable>(_ urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?, mappingPath: String? = nil) -> Observable<T> {
+    public func get<T: NKMappable>(_ urlString: String, parameters: [String: Any]?, additionalHeader: [String: String]?, mappingPath: String? = nil) -> Observable<T> {
         return self.request(.get, urlString, parameters: parameters, additionalHeaders: additionalHeader, encoding: URLEncoding.default, contentType: .JSON, mappingPath: mappingPath)
     }
 
-    public func get<T: Mappable>(_ urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?, mappingPath: String? = nil) -> Observable<T> {
+    public func get<T: Mappable>(_ urlString: String, parameters: [String: Any]?, additionalHeader: [String: String]?, mappingPath: String? = nil) -> Observable<T> {
         return self.request(.get, urlString, parameters: parameters, additionalHeaders: additionalHeader, encoding: URLEncoding.default, contentType: .JSON, mappingPath: mappingPath)
     }
 
-    public func get(_ urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?) -> Observable<JSONWrapper> {
+    public func get(_ urlString: String, parameters: [String: Any]?, additionalHeader: [String: String]?) -> Observable<JSONWrapper> {
         return self.request(.get, urlString, parameters: parameters, additionalHeaders: additionalHeader, encoding: URLEncoding.default, contentType: .JSON)
     }
 
-    public func get<T: NKArrayType>(_ urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?, mappingPath: String? = nil) -> Observable<T> where T.Element: NKMappable {
+    public func get<T: NKArrayType>(_ urlString: String, parameters: [String: Any]?, additionalHeader: [String: String]?, mappingPath: String? = nil) -> Observable<T> where T.Element: NKMappable {
         return self.request(.get, urlString, parameters: parameters, additionalHeaders: additionalHeader, encoding: URLEncoding.default, contentType: .JSON, mappingPath: mappingPath)
     }
 
-    public func get<T: NKArrayType>(_ urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?, mappingPath: String? = nil) -> Observable<T> where T.Element: Mappable {
+    public func get<T: NKArrayType>(_ urlString: String, parameters: [String: Any]?, additionalHeader: [String: String]?, mappingPath: String? = nil) -> Observable<T> where T.Element: Mappable {
         return self.request(.get, urlString, parameters: parameters, additionalHeaders: additionalHeader, encoding: URLEncoding.default, contentType: .JSON, mappingPath: mappingPath)
     }
     //
-    public func get<T: NKMappable>(_ urlString: String, parameters: [String: AnyObject]? = nil, mappingPath: String? = nil) -> Observable<T?> {
+    public func get<T: NKMappable>(_ urlString: String, parameters: [String: Any]? = nil, mappingPath: String? = nil) -> Observable<T?> {
         return self.get(urlString, parameters: parameters, additionalHeader: nil, mappingPath: mappingPath)
     }
 
-    public func get<T: Mappable>(_ urlString: String, parameters: [String: AnyObject]? = nil, mappingPath: String? = nil) -> Observable<T?> {
+    public func get<T: Mappable>(_ urlString: String, parameters: [String: Any]? = nil, mappingPath: String? = nil) -> Observable<T?> {
         return self.get(urlString, parameters: parameters, additionalHeader: nil, mappingPath: mappingPath)
     }
 
-    public func get<T: NKMappable>(_ urlString: String, parameters: [String: AnyObject]? = nil, mappingPath: String? = nil) -> Observable<T> {
+    public func get<T: NKMappable>(_ urlString: String, parameters: [String: Any]? = nil, mappingPath: String? = nil) -> Observable<T> {
         return self.get(urlString, parameters: parameters, additionalHeader: nil, mappingPath: mappingPath)
     }
 
-    public func get<T: Mappable>(_ urlString: String, parameters: [String: AnyObject]? = nil, mappingPath: String? = nil) -> Observable<T> {
+    public func get<T: Mappable>(_ urlString: String, parameters: [String: Any]? = nil, mappingPath: String? = nil) -> Observable<T> {
         return self.get(urlString, parameters: parameters, additionalHeader: nil, mappingPath: mappingPath)
     }
 
-    public func get(_ urlString: String, parameters: [String: AnyObject]? = nil) -> Observable<JSONWrapper> {
+    public func get(_ urlString: String, parameters: [String: Any]? = nil) -> Observable<JSONWrapper> {
         return self.get(urlString, parameters: parameters, additionalHeader: nil)
     }
 
-    public func get<T: NKArrayType>(_ urlString: String, parameters: [String: AnyObject]? = nil, mappingPath: String? = nil) -> Observable<T> where T.Element: NKMappable {
+    public func get<T: NKArrayType>(_ urlString: String, parameters: [String: Any]? = nil, mappingPath: String? = nil) -> Observable<T> where T.Element: NKMappable {
         return self.get(urlString, parameters: parameters, additionalHeader: nil, mappingPath: mappingPath)
     }
 
-    public func get<T: NKArrayType>(_ urlString: String, parameters: [String: AnyObject]? = nil, mappingPath: String? = nil) -> Observable<T> where T.Element: Mappable {
+    public func get<T: NKArrayType>(_ urlString: String, parameters: [String: Any]? = nil, mappingPath: String? = nil) -> Observable<T> where T.Element: Mappable {
         return self.get(urlString, parameters: parameters, additionalHeader: nil, mappingPath: mappingPath)
     }
 
     //delete
-    public func delete<T: NKMappable>(_ urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?, mappingPath: String? = nil) -> Observable<T?> {
+    public func delete<T: NKMappable>(_ urlString: String, parameters: [String: Any]?, additionalHeader: [String: String]?, mappingPath: String? = nil) -> Observable<T?> {
         return self.request(.delete, urlString, parameters: parameters, additionalHeaders: additionalHeader, encoding: URLEncoding.default, contentType: .JSON, mappingPath: mappingPath)
     }
 
-    public func delete<T: Mappable>(_ urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?, mappingPath: String? = nil) -> Observable<T?> {
+    public func delete<T: Mappable>(_ urlString: String, parameters: [String: Any]?, additionalHeader: [String: String]?, mappingPath: String? = nil) -> Observable<T?> {
         return self.request(.delete, urlString, parameters: parameters, additionalHeaders: additionalHeader, encoding: URLEncoding.default, contentType: .JSON, mappingPath: mappingPath)
     }
 
-    public func delete<T: NKMappable>(_ urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?, mappingPath: String? = nil) -> Observable<T> {
+    public func delete<T: NKMappable>(_ urlString: String, parameters: [String: Any]?, additionalHeader: [String: String]?, mappingPath: String? = nil) -> Observable<T> {
         return self.request(.delete, urlString, parameters: parameters, additionalHeaders: additionalHeader, encoding: URLEncoding.default, contentType: .JSON, mappingPath: mappingPath)
     }
 
-    public func delete<T: Mappable>(_ urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?, mappingPath: String? = nil) -> Observable<T> {
+    public func delete<T: Mappable>(_ urlString: String, parameters: [String: Any]?, additionalHeader: [String: String]?, mappingPath: String? = nil) -> Observable<T> {
         return self.request(.delete, urlString, parameters: parameters, additionalHeaders: additionalHeader, encoding: URLEncoding.default, contentType: .JSON, mappingPath: mappingPath)
     }
 
-    public func delete<T: NKArrayType>(_ urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?, mappingPath: String? = nil) -> Observable<T> where T.Element: NKMappable {
+    public func delete<T: NKArrayType>(_ urlString: String, parameters: [String: Any]?, additionalHeader: [String: String]?, mappingPath: String? = nil) -> Observable<T> where T.Element: NKMappable {
         return self.request(.delete, urlString, parameters: parameters, additionalHeaders: additionalHeader, encoding: URLEncoding.default, contentType: .JSON, mappingPath: mappingPath)
     }
 
-    public func delete<T: NKArrayType>(_ urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?, mappingPath: String? = nil) -> Observable<T> where T.Element: Mappable {
+    public func delete<T: NKArrayType>(_ urlString: String, parameters: [String: Any]?, additionalHeader: [String: String]?, mappingPath: String? = nil) -> Observable<T> where T.Element: Mappable {
         return self.request(.delete, urlString, parameters: parameters, additionalHeaders: additionalHeader, encoding: URLEncoding.default, contentType: .JSON, mappingPath: mappingPath)
     }
 
-    public func delete(_ urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?, mappingPath: String? = nil) -> Observable<JSONWrapper> {
+    public func delete(_ urlString: String, parameters: [String: Any]?, additionalHeader: [String: String]?, mappingPath: String? = nil) -> Observable<JSONWrapper> {
         return self.request(.delete, urlString, parameters: parameters, additionalHeaders: additionalHeader, encoding: URLEncoding.default, contentType: .JSON)
     }
     //
-    public func delete<T: NKMappable>(_ urlString: String, parameters: [String: AnyObject]? = nil, mappingPath: String? = nil) -> Observable<T?> {
+    public func delete<T: NKMappable>(_ urlString: String, parameters: [String: Any]? = nil, mappingPath: String? = nil) -> Observable<T?> {
         return self.delete(urlString, parameters: parameters, additionalHeader: nil, mappingPath: mappingPath)
     }
 
-    public func delete<T: Mappable>(_ urlString: String, parameters: [String: AnyObject]? = nil, mappingPath: String? = nil) -> Observable<T?> {
+    public func delete<T: Mappable>(_ urlString: String, parameters: [String: Any]? = nil, mappingPath: String? = nil) -> Observable<T?> {
         return self.delete(urlString, parameters: parameters, additionalHeader: nil, mappingPath: mappingPath)
     }
 
-    public func delete<T: NKMappable>(_ urlString: String, parameters: [String: AnyObject]? = nil, mappingPath: String? = nil) -> Observable<T> {
+    public func delete<T: NKMappable>(_ urlString: String, parameters: [String: Any]? = nil, mappingPath: String? = nil) -> Observable<T> {
         return self.delete(urlString, parameters: parameters, additionalHeader: nil, mappingPath: mappingPath)
     }
 
-    public func delete<T: Mappable>(_ urlString: String, parameters: [String: AnyObject]? = nil, mappingPath: String? = nil) -> Observable<T> {
+    public func delete<T: Mappable>(_ urlString: String, parameters: [String: Any]? = nil, mappingPath: String? = nil) -> Observable<T> {
         return self.delete(urlString, parameters: parameters, additionalHeader: nil, mappingPath: mappingPath)
     }
 
-    public func delete<T: NKArrayType>(_ urlString: String, parameters: [String: AnyObject]? = nil, mappingPath: String? = nil) -> Observable<T> where T.Element: NKMappable {
+    public func delete<T: NKArrayType>(_ urlString: String, parameters: [String: Any]? = nil, mappingPath: String? = nil) -> Observable<T> where T.Element: NKMappable {
         return self.delete(urlString, parameters: parameters, additionalHeader: nil, mappingPath: mappingPath)
     }
 
-    public func delete<T: NKArrayType>(_ urlString: String, parameters: [String: AnyObject]? = nil, mappingPath: String? = nil) -> Observable<T> where T.Element: Mappable {
+    public func delete<T: NKArrayType>(_ urlString: String, parameters: [String: Any]? = nil, mappingPath: String? = nil) -> Observable<T> where T.Element: Mappable {
         return self.delete(urlString, parameters: parameters, additionalHeader: nil, mappingPath: mappingPath)
     }
 
-    public func delete(_ urlString: String, parameters: [String: AnyObject]? = nil) -> Observable<JSONWrapper> {
+    public func delete(_ urlString: String, parameters: [String: Any]? = nil) -> Observable<JSONWrapper> {
         return self.delete(urlString, parameters: parameters, additionalHeader: nil)
     }
 
     //put
-    public func put<T: Mappable>(_ urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?, contentType: ContentType, mappingPath: String? = nil) -> Observable<T?> {
+    public func put<T: Mappable>(_ urlString: String, parameters: [String: Any]?, additionalHeader: [String: String]?, contentType: ContentType, mappingPath: String? = nil) -> Observable<T?> {
         return self.request(.put, urlString, parameters: parameters, additionalHeaders: additionalHeader, encoding: JSONEncoding.default, contentType: contentType, mappingPath: mappingPath)
     }
 
-    public func put<T: NKMappable>(_ urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?, contentType: ContentType, mappingPath: String? = nil) -> Observable<T?> {
+    public func put<T: NKMappable>(_ urlString: String, parameters: [String: Any]?, additionalHeader: [String: String]?, contentType: ContentType, mappingPath: String? = nil) -> Observable<T?> {
         return self.request(.put, urlString, parameters: parameters, additionalHeaders: additionalHeader, encoding: JSONEncoding.default, contentType: contentType, mappingPath: mappingPath)
     }
 
-    public func put<T: Mappable>(_ urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?, contentType: ContentType, mappingPath: String? = nil) -> Observable<T> {
+    public func put<T: Mappable>(_ urlString: String, parameters: [String: Any]?, additionalHeader: [String: String]?, contentType: ContentType, mappingPath: String? = nil) -> Observable<T> {
         return self.request(.put, urlString, parameters: parameters, additionalHeaders: additionalHeader, encoding: JSONEncoding.default, contentType: contentType, mappingPath: mappingPath)
     }
 
-    public func put<T: NKMappable>(_ urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?, contentType: ContentType, mappingPath: String? = nil) -> Observable<T> {
+    public func put<T: NKMappable>(_ urlString: String, parameters: [String: Any]?, additionalHeader: [String: String]?, contentType: ContentType, mappingPath: String? = nil) -> Observable<T> {
         return self.request(.put, urlString, parameters: parameters, additionalHeaders: additionalHeader, encoding: JSONEncoding.default, contentType: contentType, mappingPath: mappingPath)
     }
 
-    public func put<T: NKArrayType>(_ urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?, contentType: ContentType, mappingPath: String? = nil) -> Observable<T> where T.Element: Mappable {
+    public func put<T: NKArrayType>(_ urlString: String, parameters: [String: Any]?, additionalHeader: [String: String]?, contentType: ContentType, mappingPath: String? = nil) -> Observable<T> where T.Element: Mappable {
         return self.request(.put, urlString, parameters: parameters, additionalHeaders: additionalHeader, encoding: JSONEncoding.default, contentType: contentType, mappingPath: mappingPath)
     }
 
-    public func put<T: NKArrayType>(_ urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?, contentType: ContentType, mappingPath: String? = nil) -> Observable<T> where T.Element: NKMappable {
+    public func put<T: NKArrayType>(_ urlString: String, parameters: [String: Any]?, additionalHeader: [String: String]?, contentType: ContentType, mappingPath: String? = nil) -> Observable<T> where T.Element: NKMappable {
         return self.request(.put, urlString, parameters: parameters, additionalHeaders: additionalHeader, encoding: JSONEncoding.default, contentType: contentType, mappingPath: mappingPath)
     }
 
-    public func put(_ urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?, contentType: ContentType) -> Observable<JSONWrapper> {
+    public func put(_ urlString: String, parameters: [String: Any]?, additionalHeader: [String: String]?, contentType: ContentType) -> Observable<JSONWrapper> {
         return self.request(.put, urlString, parameters: parameters, additionalHeaders: additionalHeader, encoding: JSONEncoding.default, contentType: contentType)
     }
     ///
-    public func put<T: NKMappable>(_ urlString: String, parameters: [String: AnyObject]? = nil, contentType: ContentType, mappingPath: String? = nil) -> Observable<T?> {
+    public func put<T: NKMappable>(_ urlString: String, parameters: [String: Any]? = nil, contentType: ContentType, mappingPath: String? = nil) -> Observable<T?> {
         return self.put(urlString, parameters: parameters, additionalHeader: nil, contentType: contentType, mappingPath: mappingPath)
     }
 
-    public func put<T: Mappable>(_ urlString: String, parameters: [String: AnyObject]? = nil, contentType: ContentType, mappingPath: String? = nil) -> Observable<T?> {
+    public func put<T: Mappable>(_ urlString: String, parameters: [String: Any]? = nil, contentType: ContentType, mappingPath: String? = nil) -> Observable<T?> {
         return self.put(urlString, parameters: parameters, additionalHeader: nil, contentType: contentType, mappingPath: mappingPath)
     }
 
-    public func put<T: NKMappable>(_ urlString: String, parameters: [String: AnyObject]? = nil, contentType: ContentType, mappingPath: String? = nil) -> Observable<T> {
+    public func put<T: NKMappable>(_ urlString: String, parameters: [String: Any]? = nil, contentType: ContentType, mappingPath: String? = nil) -> Observable<T> {
         return self.put(urlString, parameters: parameters, additionalHeader: nil, contentType: contentType, mappingPath: mappingPath)
     }
 
-    public func put<T: Mappable>(_ urlString: String, parameters: [String: AnyObject]? = nil, contentType: ContentType, mappingPath: String? = nil) -> Observable<T> {
+    public func put<T: Mappable>(_ urlString: String, parameters: [String: Any]? = nil, contentType: ContentType, mappingPath: String? = nil) -> Observable<T> {
         return self.put(urlString, parameters: parameters, additionalHeader: nil, contentType: contentType, mappingPath: mappingPath)
     }
 
-    public func put<T: NKArrayType>(_ urlString: String, parameters: [String: AnyObject]? = nil, contentType: ContentType, mappingPath: String? = nil) -> Observable<T> where T.Element: NKMappable {
+    public func put<T: NKArrayType>(_ urlString: String, parameters: [String: Any]? = nil, contentType: ContentType, mappingPath: String? = nil) -> Observable<T> where T.Element: NKMappable {
         return self.put(urlString, parameters: parameters, additionalHeader: nil, contentType: contentType, mappingPath: mappingPath)
     }
 
-    public func put<T: NKArrayType>(_ urlString: String, parameters: [String: AnyObject]? = nil, contentType: ContentType, mappingPath: String? = nil) -> Observable<T> where T.Element: Mappable {
+    public func put<T: NKArrayType>(_ urlString: String, parameters: [String: Any]? = nil, contentType: ContentType, mappingPath: String? = nil) -> Observable<T> where T.Element: Mappable {
         return self.put(urlString, parameters: parameters, additionalHeader: nil, contentType: contentType, mappingPath: mappingPath)
     }
 
-    public func put(_ urlString: String, parameters: [String: AnyObject]? = nil, contentType: ContentType) -> Observable<JSONWrapper> {
+    public func put(_ urlString: String, parameters: [String: Any]? = nil, contentType: ContentType) -> Observable<JSONWrapper> {
         return self.put(urlString, parameters: parameters, additionalHeader: nil, contentType: contentType)
     }
     ///
-    public func put<T: NKMappable>(_ urlString: String, parameters: [String: AnyObject]? = nil, mappingPath: String? = nil) -> Observable<T?> {
+    public func put<T: NKMappable>(_ urlString: String, parameters: [String: Any]? = nil, mappingPath: String? = nil) -> Observable<T?> {
         return self.put(urlString, parameters: parameters, contentType: .JSON, mappingPath: mappingPath)
     }
 
-    public func put<T: Mappable>(_ urlString: String, parameters: [String: AnyObject]? = nil, mappingPath: String? = nil) -> Observable<T?> {
+    public func put<T: Mappable>(_ urlString: String, parameters: [String: Any]? = nil, mappingPath: String? = nil) -> Observable<T?> {
         return self.put(urlString, parameters: parameters, contentType: .JSON, mappingPath: mappingPath)
     }
 
-    public func put<T: NKMappable>(_ urlString: String, parameters: [String: AnyObject]? = nil, mappingPath: String? = nil) -> Observable<T> {
+    public func put<T: NKMappable>(_ urlString: String, parameters: [String: Any]? = nil, mappingPath: String? = nil) -> Observable<T> {
         return self.put(urlString, parameters: parameters, contentType: .JSON, mappingPath: mappingPath)
     }
 
-    public func put<T: Mappable>(_ urlString: String, parameters: [String: AnyObject]? = nil, mappingPath: String? = nil) -> Observable<T> {
+    public func put<T: Mappable>(_ urlString: String, parameters: [String: Any]? = nil, mappingPath: String? = nil) -> Observable<T> {
         return self.put(urlString, parameters: parameters, contentType: .JSON, mappingPath: mappingPath)
     }
 
-    public func put<T: NKArrayType>(_ urlString: String, parameters: [String: AnyObject]? = nil, mappingPath: String? = nil) -> Observable<T> where T.Element: NKMappable {
+    public func put<T: NKArrayType>(_ urlString: String, parameters: [String: Any]? = nil, mappingPath: String? = nil) -> Observable<T> where T.Element: NKMappable {
         return self.put(urlString, parameters: parameters, contentType: .JSON, mappingPath: mappingPath)
     }
 
-    public func put<T: NKArrayType>(_ urlString: String, parameters: [String: AnyObject]? = nil, mappingPath: String? = nil) -> Observable<T> where T.Element: Mappable {
+    public func put<T: NKArrayType>(_ urlString: String, parameters: [String: Any]? = nil, mappingPath: String? = nil) -> Observable<T> where T.Element: Mappable {
         return self.put(urlString, parameters: parameters, contentType: .JSON, mappingPath: mappingPath)
     }
 
-    public func put(_ urlString: String, parameters: [String: AnyObject]? = nil) -> Observable<JSONWrapper> {
+    public func put(_ urlString: String, parameters: [String: Any]? = nil) -> Observable<JSONWrapper> {
         return self.put(urlString, parameters: parameters, contentType: .JSON)
     }
 
 
     //post
-    public func post<T: Mappable>(_ urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?, contentType: ContentType, mappingPath: String? = nil) -> Observable<T?> {
+    public func post<T: Mappable>(_ urlString: String, parameters: [String: Any]?, additionalHeader: [String: String]?, contentType: ContentType, mappingPath: String? = nil) -> Observable<T?> {
         return self.request(.post, urlString, parameters: parameters, additionalHeaders: additionalHeader, encoding: JSONEncoding.default, contentType: contentType, mappingPath: mappingPath)
     }
 
-    public func post<T: NKMappable>(_ urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?, contentType: ContentType, mappingPath: String? = nil) -> Observable<T?> {
+    public func post<T: NKMappable>(_ urlString: String, parameters: [String: Any]?, additionalHeader: [String: String]?, contentType: ContentType, mappingPath: String? = nil) -> Observable<T?> {
         return self.request(.post, urlString, parameters: parameters, additionalHeaders: additionalHeader, encoding: JSONEncoding.default, contentType: contentType, mappingPath: mappingPath)
     }
 
-    public func post<T: Mappable>(_ urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?, contentType: ContentType, mappingPath: String? = nil) -> Observable<T> {
+    public func post<T: Mappable>(_ urlString: String, parameters: [String: Any]?, additionalHeader: [String: String]?, contentType: ContentType, mappingPath: String? = nil) -> Observable<T> {
         return self.request(.post, urlString, parameters: parameters, additionalHeaders: additionalHeader, encoding: JSONEncoding.default, contentType: contentType, mappingPath: mappingPath)
     }
 
-    public func post<T: NKMappable>(_ urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?, contentType: ContentType, mappingPath: String? = nil) -> Observable<T> {
+    public func post<T: NKMappable>(_ urlString: String, parameters: [String: Any]?, additionalHeader: [String: String]?, contentType: ContentType, mappingPath: String? = nil) -> Observable<T> {
         return self.request(.post, urlString, parameters: parameters, additionalHeaders: additionalHeader, encoding: JSONEncoding.default, contentType: contentType, mappingPath: mappingPath)
     }
 
-    public func post<T: NKArrayType>(_ urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?, contentType: ContentType, mappingPath: String? = nil) -> Observable<T> where T.Element: Mappable {
+    public func post<T: NKArrayType>(_ urlString: String, parameters: [String: Any]?, additionalHeader: [String: String]?, contentType: ContentType, mappingPath: String? = nil) -> Observable<T> where T.Element: Mappable {
         return self.request(.post, urlString, parameters: parameters, additionalHeaders: additionalHeader, encoding: JSONEncoding.default, contentType: contentType, mappingPath: mappingPath)
     }
 
-    public func post<T: NKArrayType>(_ urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?, contentType: ContentType, mappingPath: String? = nil) -> Observable<T> where T.Element: NKMappable {
+    public func post<T: NKArrayType>(_ urlString: String, parameters: [String: Any]?, additionalHeader: [String: String]?, contentType: ContentType, mappingPath: String? = nil) -> Observable<T> where T.Element: NKMappable {
         return self.request(.post, urlString, parameters: parameters, additionalHeaders: additionalHeader, encoding: JSONEncoding.default, contentType: contentType, mappingPath: mappingPath)
     }
 
-    public func post(_ urlString: String, parameters: [String: AnyObject]?, additionalHeader: [String: String]?, contentType: ContentType) -> Observable<JSONWrapper> {
+    public func post(_ urlString: String, parameters: [String: Any]?, additionalHeader: [String: String]?, contentType: ContentType) -> Observable<JSONWrapper> {
 
         return self.request(.post, urlString, parameters: parameters, additionalHeaders: additionalHeader, encoding: JSONEncoding.default, contentType: contentType)
     }
     //
-    public func post<T: NKMappable>(_ urlString: String, parameters: [String: AnyObject]? = nil, contentType: ContentType, mappingPath: String? = nil) -> Observable<T?> {
+    public func post<T: NKMappable>(_ urlString: String, parameters: [String: Any]? = nil, contentType: ContentType, mappingPath: String? = nil) -> Observable<T?> {
         return self.post(urlString, parameters: parameters, additionalHeader: nil, contentType: contentType, mappingPath: mappingPath)
     }
 
-    public func post<T: Mappable>(_ urlString: String, parameters: [String: AnyObject]? = nil, contentType: ContentType, mappingPath: String? = nil) -> Observable<T?> {
+    public func post<T: Mappable>(_ urlString: String, parameters: [String: Any]? = nil, contentType: ContentType, mappingPath: String? = nil) -> Observable<T?> {
         return self.post(urlString, parameters: parameters, additionalHeader: nil, contentType: contentType, mappingPath: mappingPath)
     }
 
-    public func post<T: NKMappable>(_ urlString: String, parameters: [String: AnyObject]? = nil, contentType: ContentType, mappingPath: String? = nil) -> Observable<T> {
+    public func post<T: NKMappable>(_ urlString: String, parameters: [String: Any]? = nil, contentType: ContentType, mappingPath: String? = nil) -> Observable<T> {
         return self.post(urlString, parameters: parameters, additionalHeader: nil, contentType: contentType, mappingPath: mappingPath)
     }
 
-    public func post<T: Mappable>(_ urlString: String, parameters: [String: AnyObject]? = nil, contentType: ContentType, mappingPath: String? = nil) -> Observable<T> {
+    public func post<T: Mappable>(_ urlString: String, parameters: [String: Any]? = nil, contentType: ContentType, mappingPath: String? = nil) -> Observable<T> {
         return self.post(urlString, parameters: parameters, additionalHeader: nil, contentType: contentType, mappingPath: mappingPath)
     }
 
-    public func post<T: NKArrayType>(_ urlString: String, parameters: [String: AnyObject]? = nil, contentType: ContentType, mappingPath: String? = nil) -> Observable<T> where T.Element: NKMappable {
+    public func post<T: NKArrayType>(_ urlString: String, parameters: [String: Any]? = nil, contentType: ContentType, mappingPath: String? = nil) -> Observable<T> where T.Element: NKMappable {
         return self.post(urlString, parameters: parameters, additionalHeader: nil, contentType: contentType, mappingPath: mappingPath)
     }
 
-    public func post<T: NKArrayType>(_ urlString: String, parameters: [String: AnyObject]? = nil, contentType: ContentType, mappingPath: String? = nil) -> Observable<T> where T.Element: Mappable {
+    public func post<T: NKArrayType>(_ urlString: String, parameters: [String: Any]? = nil, contentType: ContentType, mappingPath: String? = nil) -> Observable<T> where T.Element: Mappable {
         return self.post(urlString, parameters: parameters, additionalHeader: nil, contentType: contentType, mappingPath: mappingPath)
     }
 
-    public func post(_ urlString: String, parameters: [String: AnyObject]? = nil, contentType: ContentType) -> Observable<JSONWrapper> {
+    public func post(_ urlString: String, parameters: [String: Any]? = nil, contentType: ContentType) -> Observable<JSONWrapper> {
         return self.post(urlString, parameters: parameters, additionalHeader: nil, contentType: contentType)
     }
     //
-    public func post<T: NKMappable>(_ urlString: String, parameters: [String: AnyObject]? = nil, mappingPath: String? = nil) -> Observable<T?> {
+    public func post<T: NKMappable>(_ urlString: String, parameters: [String: Any]? = nil, mappingPath: String? = nil) -> Observable<T?> {
         return self.post(urlString, parameters: parameters, contentType: .JSON, mappingPath: mappingPath)
     }
 
-    public func post<T: Mappable>(_ urlString: String, parameters: [String: AnyObject]? = nil, mappingPath: String? = nil) -> Observable<T?> {
+    public func post<T: Mappable>(_ urlString: String, parameters: [String: Any]? = nil, mappingPath: String? = nil) -> Observable<T?> {
         return self.post(urlString, parameters: parameters, contentType: .JSON, mappingPath: mappingPath)
     }
 
-    public func post<T: NKMappable>(_ urlString: String, parameters: [String: AnyObject]? = nil, mappingPath: String? = nil) -> Observable<T> {
+    public func post<T: NKMappable>(_ urlString: String, parameters: [String: Any]? = nil, mappingPath: String? = nil) -> Observable<T> {
         return self.post(urlString, parameters: parameters, contentType: .JSON, mappingPath: mappingPath)
     }
 
-    public func post<T: Mappable>(_ urlString: String, parameters: [String: AnyObject]? = nil, mappingPath: String? = nil) -> Observable<T> {
+    public func post<T: Mappable>(_ urlString: String, parameters: [String: Any]? = nil, mappingPath: String? = nil) -> Observable<T> {
         return self.post(urlString, parameters: parameters, contentType: .JSON, mappingPath: mappingPath)
     }
 
-    public func post<T: NKArrayType>(_ urlString: String, parameters: [String: AnyObject]? = nil, mappingPath: String? = nil) -> Observable<T> where T.Element: NKMappable {
+    public func post<T: NKArrayType>(_ urlString: String, parameters: [String: Any]? = nil, mappingPath: String? = nil) -> Observable<T> where T.Element: NKMappable {
         return self.post(urlString, parameters: parameters, contentType: .JSON, mappingPath: mappingPath)
     }
 
-    public func post<T: NKArrayType>(_ urlString: String, parameters: [String: AnyObject]? = nil, mappingPath: String? = nil) -> Observable<T> where T.Element: Mappable {
+    public func post<T: NKArrayType>(_ urlString: String, parameters: [String: Any]? = nil, mappingPath: String? = nil) -> Observable<T> where T.Element: Mappable {
         return self.post(urlString, parameters: parameters, contentType: .JSON, mappingPath: mappingPath)
     }
 
-    public func post(_ urlString: String, parameters: [String: AnyObject]? = nil) -> Observable<JSONWrapper> {
+    public func post(_ urlString: String, parameters: [String: Any]? = nil) -> Observable<JSONWrapper> {
         return self.post(urlString, parameters: parameters, contentType: .JSON)
     }
 
@@ -353,7 +353,7 @@ public extension NKApiClient {
     public func request<T: Mappable>(
         _ method: HTTPMethod,
         _ URLString: String,
-          parameters: [String: AnyObject]?,
+          parameters: [String: Any]?,
           additionalHeaders: [String : String]?,
           encoding: ParameterEncoding,
           contentType: ContentType,
@@ -370,7 +370,7 @@ public extension NKApiClient {
     public func request<T: NKMappable>(
         _ method: HTTPMethod,
         _ URLString: String,
-          parameters: [String: AnyObject]?,
+          parameters: [String: Any]?,
           additionalHeaders: [String : String]?,
           encoding: ParameterEncoding,
           contentType: ContentType,
@@ -387,7 +387,7 @@ public extension NKApiClient {
     public func request<T: Mappable>(
         _ method: HTTPMethod,
         _ URLString: String,
-          parameters: [String: AnyObject]?,
+          parameters: [String: Any]?,
           additionalHeaders: [String : String]?,
           encoding: ParameterEncoding,
           contentType: ContentType,
@@ -404,7 +404,7 @@ public extension NKApiClient {
     public func request<T: NKMappable>(
         _ method: HTTPMethod,
         _ URLString: String,
-          parameters: [String: AnyObject]?,
+          parameters: [String: Any]?,
           additionalHeaders: [String : String]?,
           encoding: ParameterEncoding,
           contentType: ContentType,
@@ -421,7 +421,7 @@ public extension NKApiClient {
     public func request(
         _ method: HTTPMethod,
         _ URLString: String,
-          parameters: [String: AnyObject]?,
+          parameters: [String: Any]?,
           additionalHeaders: [String : String]?,
           encoding: ParameterEncoding,
           contentType: ContentType) -> Observable<JSONWrapper> {
@@ -436,7 +436,7 @@ public extension NKApiClient {
     public func request<T: NKArrayType>(
         _ method: HTTPMethod,
         _ URLString: String,
-          parameters: [String: AnyObject]?,
+          parameters: [String: Any]?,
           additionalHeaders: [String : String]?,
           encoding: ParameterEncoding,
           contentType: ContentType,
@@ -453,7 +453,7 @@ public extension NKApiClient {
     public func request<T: NKArrayType>(
         _ method: HTTPMethod,
         _ URLString: String,
-          parameters: [String: AnyObject]?,
+          parameters: [String: Any]?,
           additionalHeaders: [String : String]?,
           encoding: ParameterEncoding,
           contentType: ContentType,
@@ -471,7 +471,7 @@ public extension NKApiClient {
     public func request<T: Mappable>(
         _ method: HTTPMethod,
         withFullPath fullPath: String,
-                     parameters: [String: AnyObject]?,
+                     parameters: [String: Any]?,
                      additionalHeaders: [String : String]?,
                      encoding: ParameterEncoding,
                      contentType: ContentType,
@@ -487,7 +487,7 @@ public extension NKApiClient {
     public func request<T: NKMappable>(
         _ method: HTTPMethod,
         withFullPath fullPath: String,
-                     parameters: [String: AnyObject]?,
+                     parameters: [String: Any]?,
                      additionalHeaders: [String : String]?,
                      encoding: ParameterEncoding,
                      contentType: ContentType,
@@ -503,7 +503,7 @@ public extension NKApiClient {
     public func request<T: Mappable>(
         _ method: HTTPMethod,
         withFullPath fullPath: String,
-                     parameters: [String: AnyObject]?,
+                     parameters: [String: Any]?,
                      additionalHeaders: [String : String]?,
                      encoding: ParameterEncoding,
                      contentType: ContentType,
@@ -519,7 +519,7 @@ public extension NKApiClient {
     public func request<T: NKMappable>(
         _ method: HTTPMethod,
         withFullPath fullPath: String,
-                     parameters: [String: AnyObject]?,
+                     parameters: [String: Any]?,
                      additionalHeaders: [String : String]?,
                      encoding: ParameterEncoding,
                      contentType: ContentType,
@@ -536,7 +536,7 @@ public extension NKApiClient {
     public func request<T: NKArrayType>(
         _ method: HTTPMethod,
         withFullPath fullPath: String,
-                     parameters: [String: AnyObject]?,
+                     parameters: [String: Any]?,
                      additionalHeaders: [String : String]?,
                      encoding: ParameterEncoding,
                      contentType: ContentType,
@@ -553,7 +553,7 @@ public extension NKApiClient {
     public func request<T: NKArrayType>(
         _ method: HTTPMethod,
         withFullPath fullPath: String,
-                     parameters: [String: AnyObject]?,
+                     parameters: [String: Any]?,
                      additionalHeaders: [String : String]?,
                      encoding: ParameterEncoding,
                      contentType: ContentType,
@@ -570,7 +570,7 @@ public extension NKApiClient {
     public func request(
         _ method: HTTPMethod,
         withFullPath fullPath: String,
-                     parameters: [String: AnyObject]?,
+                     parameters: [String: Any]?,
                      additionalHeaders: [String : String]?,
                      encoding: ParameterEncoding,
                      contentType: ContentType) -> Observable<JSONWrapper> {
@@ -614,7 +614,7 @@ private extension NKApiClient {
     func _request(
         _ method: HTTPMethod,
         withFullPath fullPath: String,
-                     parameters: [String: AnyObject]?,
+                     parameters: [String: Any]?,
                      additionalHeaders: [String : String]?,
                      encoding: ParameterEncoding,
                      contentType: ContentType) -> Observable<JSONWrapper> {
@@ -685,19 +685,22 @@ private extension NKApiClient {
                     }
 
                     for (key, value) in params {
-                        if value.isKind(of: NSURL.self) {
-                            multipart.append(value as! URL, withName: key)
+                        if let value = value as? URL {
+                            multipart.append(value, withName: key)
                             continue
                         }
 
                         var data: Data? = nil
 
-                        if value.isKind(of: NSString.self) {
-                            data = value.data(using: String.Encoding.utf8.rawValue)
+                        if let value = value as? String {
+                            data = value.data(using: String.Encoding(rawValue: String.Encoding.utf8.rawValue))
+                        }
+                        if (value as AnyObject).isKind(of: NSString.self) {
+                            
                         }
 
-                        if value.isKind(of: NSData.self) {
-                            data = value as? Data
+                        if let value = value as? Data {
+                            data = value
                         }
 
                         if let data = data {
