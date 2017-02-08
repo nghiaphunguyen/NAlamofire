@@ -19,6 +19,7 @@ open class NKApiClient: AnyObject {
     public enum ContentType: String {
         case JSON = "application/json"
         case Multipart = "multipart/form-data"
+        case FormData
     }
 
     //public properties
@@ -426,7 +427,7 @@ public extension NKApiClient {
           encoding: ParameterEncoding,
           contentType: ContentType) -> Observable<JSONWrapper> {
         return self.request(method,
-                            withFullPath: self.host ++ URLString,
+                            withFullPath: (self.host ++ URLString) + "/",
                             parameters: parameters,
                             additionalHeaders: additionalHeaders,
                             encoding: encoding,
@@ -442,7 +443,7 @@ public extension NKApiClient {
           contentType: ContentType,
           mappingPath: String?) -> Observable<T> where T.Element: Mappable {
         return self.request(method,
-                            withFullPath: self.host ++ URLString,
+                            withFullPath: (self.host ++ URLString) + "/",
                             parameters: parameters,
                             additionalHeaders: additionalHeaders,
                             encoding: encoding,
@@ -459,7 +460,7 @@ public extension NKApiClient {
           contentType: ContentType,
           mappingPath: String?) -> Observable<T> where T.Element: NKMappable {
         return self.request(method,
-                            withFullPath: self.host ++ URLString,
+                            withFullPath: (self.host ++ URLString) + "/",
                             parameters: parameters,
                             additionalHeaders: additionalHeaders,
                             encoding: encoding,
@@ -628,7 +629,7 @@ private extension NKApiClient {
                 }
             }
 
-            headers["Content-Type"] = contentType == .Multipart ? nil : contentType.rawValue
+            headers["Content-Type"] = contentType == .JSON ? contentType.rawValue : nil
             let parameterString = String(format: "%@", (parameters == nil) ? "[no params]" : parameters!)
 
             let requestCode = "\(NSDate().timeIntervalSince1970)"
@@ -666,14 +667,13 @@ private extension NKApiClient {
             }
 
             switch contentType {
-            case .JSON:
+            case .JSON, .FormData:
                 self.alamofireManager?
                     .request(URLString,
                              method: method,
                              parameters: parameters,
                              encoding: encoding,
                              headers: headers)
-                    .validate()
                     .validate(statusCode: self.acceptableStatusCodes)
                     .responseData(queue: self.responseQueue, completionHandler: completion)
 
