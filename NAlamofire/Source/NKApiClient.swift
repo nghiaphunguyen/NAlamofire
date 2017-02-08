@@ -427,7 +427,7 @@ public extension NKApiClient {
           encoding: ParameterEncoding,
           contentType: ContentType) -> Observable<JSONWrapper> {
         return self.request(method,
-                            withFullPath: (self.host ++ URLString) + "/",
+                            withFullPath: (self.host ++ URLString),
                             parameters: parameters,
                             additionalHeaders: additionalHeaders,
                             encoding: encoding,
@@ -443,7 +443,7 @@ public extension NKApiClient {
           contentType: ContentType,
           mappingPath: String?) -> Observable<T> where T.Element: Mappable {
         return self.request(method,
-                            withFullPath: (self.host ++ URLString) + "/",
+                            withFullPath: (self.host ++ URLString),
                             parameters: parameters,
                             additionalHeaders: additionalHeaders,
                             encoding: encoding,
@@ -460,7 +460,7 @@ public extension NKApiClient {
           contentType: ContentType,
           mappingPath: String?) -> Observable<T> where T.Element: NKMappable {
         return self.request(method,
-                            withFullPath: (self.host ++ URLString) + "/",
+                            withFullPath: (self.host ++ URLString),
                             parameters: parameters,
                             additionalHeaders: additionalHeaders,
                             encoding: encoding,
