@@ -11,7 +11,7 @@ import Foundation
 infix operator ++
 func ++(left: String, right: String) -> String {
     var result = (left as NSString).appendingPathComponent(right)
-    if let last = result.characters.last, last != "/" {
+    if let last = right.characters.last, last != "/" {
         result += "/"
     }
     
